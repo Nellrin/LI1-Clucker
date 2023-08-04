@@ -1,4 +1,4 @@
-![Doom Frogger Clucker](logo/versaoFinal.png)
+![Doom Frogger Clucker](logo/versaoFinalLarge.png)
 #
 
 Immerse yourself in a third-person, procedurally generated world, assuming the role of a wandering protagonist in pursuit of achieving the utmost score in the captivating game of "DOOM FROGGER CLUCKER".
@@ -9,7 +9,7 @@ Although there is no way to [understand how the final project works](doc/html/do
 
 
 ## try it out for yourself
-
+#
     [1. Install GHC and cabal](https://www.haskell.org/downloads/)
 
     2. Install all necessary libraries (Gloss) 
