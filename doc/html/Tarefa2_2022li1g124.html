@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Tarefa2_2022li1g124</title><link href="linuwial.css" rel="stylesheet" type="text/css" title="Linuwial" /><link rel="stylesheet" type="text/css" href="quick-jump.css" /><script src="haddock-bundle.min.js" async="async" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { processClass: "mathjax", ignoreClass: ".*" } });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script></head><body><div id="package-header"><span class="caption empty">&nbsp;</span><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul></div><div id="content"><div id="module-header"><table class="info"><tr><th valign="top">Copyright</th><td>Frederico Cunha Afonso &lt;a104001@alunos.uminho.pt&gt;</td></tr><tr><th>Safe Haskell</th><td>Safe</td></tr></table><p class="caption">Tarefa2_2022li1g124</p></div><div id="description"><p class="caption">Description</p><div class="doc"><p>M&#243;dulo para a realiza&#231;&#227;o da Tarefa 2 do projeto de LI1 em 2022/23.</p></div></div><div id="synopsis"><details id="syn"><summary>Synopsis</summary><ul class="details-toggle" data-details-id="syn"><li class="src short"><a href="#v:estendeMapa">estendeMapa</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></li><li class="src short"><a href="#v:primlin">primlin</a> :: Int -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]</li><li class="src short"><a href="#v:proximoTerrenoVel">proximoTerrenoVel</a> :: Int -&gt; <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; <a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></li><li class="src short"><a href="#v:terrenosVels">terrenosVels</a> :: Int -&gt; [<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>] -&gt; [<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>]</li><li class="src short"><a href="#v:velrandom">velrandom</a> :: Int -&gt; Int</li><li class="src short"><a href="#v:proximosTerrenosPossiveis">proximosTerrenosPossiveis</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; Int -&gt; Int -&gt; [<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>]</li><li class="src short"><a href="#v:proximoObstaculo">proximoObstaculo</a> :: Int -&gt; Int -&gt; [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]</li><li class="src short"><a href="#v:proximosObstaculosValidos">proximosObstaculosValidos</a> :: Int -&gt; [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]</li><li class="src short"><a href="#v:bomRio">bomRio</a> :: [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]</li><li class="src short"><a href="#v:boaRelva">boaRelva</a> :: [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; Int -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]</li><li class="src short"><a href="#v:actuallyBoaRelva">actuallyBoaRelva</a> :: [[<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]] -&gt; Int -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]</li><li class="src short"><a href="#v:posneg">posneg</a> :: Int -&gt; Int</li><li class="src short"><a href="#v:randomizer">randomizer</a> :: Int -&gt; [Int]</li><li class="src short"><a href="#v:numRelvas">numRelvas</a> :: [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])]</li><li class="src short"><a href="#v:obsRelvas">obsRelvas</a> :: [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; [[<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]]</li><li class="src short"><a href="#v:relvLinhas">relvLinhas</a> :: [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; [[<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]]</li><li class="src short"><a href="#v:relvCols">relvCols</a> :: [[<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]] -&gt; [[<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]]</li><li class="src short"><a href="#v:velTer1">velTer1</a> :: <a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a> -&gt; Int</li></ul></details></div><div id="interface"><h1>Documentation</h1><div class="top"><p class="src"><a id="v:estendeMapa" class="def">estendeMapa</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> <a href="#v:estendeMapa" class="selflink">#</a></p><div class="doc"><h2>estendeMapa</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa2_2022li1g124.html#v:estendeMapa" title="Tarefa2_2022li1g124">estendeMapa</a></code></strong> ir&#225; analisar o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> que lhe foi submetido 
+e, com o valor Inteiro recebido (dentro do intervalo [1,100]) ir&#225; devolver
+o mesmo <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> recebido, mas adicionar&#225; uma &quot;linha&quot; &quot;pseudo-aleatoriamente&quot;
+usando o Inteiro recebido como recurso (ir&#225; devolver o mesmo <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code>, mas
+adicionando um par de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> e lista de Obst&#225;culos)</p><p>Podemos assim definir <strong><code><a href="Tarefa2_2022li1g124.html#v:estendeMapa" title="Tarefa2_2022li1g124">estendeMapa</a></code></strong> da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>estendeMapa :: Mapa -&gt; Int -&gt; Mapa
+estendeMapa (Mapa l []) x = Mapa l [(Relva, primlin l [])]  
+estendeMapa (Mapa l terobs) x 
+      = let proxTer = proximoTerrenoVel x (Mapa l terobs)
+            proxObs = proximoObstaculo x l ((proxTer, []):(terobs))
+        in Mapa l (((proxTer), (proxObs)):terobs)
+</pre><pre>    <strong>:: <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong>  assume-se qualquer <strong>Mapa</strong> a esta fun&#231;&#227;o
+    <strong>-&gt; Int</strong>   iremos tambem providenciar-lhe um n&#250;mero qualquer
+                 que ser&#225; usado para escolher um <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> qualquer
+                 e uma lista de Obst&#225;culos qualquer (tudo aleat&#243;riamente)
+    <strong>-&gt; <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong>  ir&#225; devolver um mesmo <strong>Mapa</strong>, com uma &quot;linha adicionada&quot;
+                 (adicionando um par <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> | Lista de Obst&#225;culos &#224; cabe&#231;a
+                 da lista de pares)
+</pre><p>Caso o <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> dado tenha um conjunto vazio de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s | Lista de Obst&#225;culos,
+a fun&#231;&#227;o ir&#225; devolver um <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> &quot;<strong><code><a href="LI12223.html#v:Relva" title="LI12223">Relva</a></code></strong>&quot; com uma lista de Obst&#225;culos
+preenchida de Obst&#225;culos &quot;<strong><code><a href="LI12223.html#v:Nenhum" title="LI12223">Nenhum</a></code></strong>&quot;, baseando-me no <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> original
+(iremos evitar que o <code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code> comece num &quot;<strong><code><a href="LI12223.html#v:Rio" title="LI12223">Rio</a></code> </strong>&quot; na mesma coordenada de um 
+&quot;<strong><code><a href="LI12223.html#v:Nenhum" title="LI12223">Nenhum</a></code></strong>&quot;, ou numa &quot;<strong><code><a href="LI12223.html#v:Estrada" title="LI12223">Estrada</a></code></strong>&quot; na mesma coordenada de um &quot;<strong>Carro</strong>&quot;).
+Usando uma fun&#231;&#227;o auxiliar &quot;primlin&quot; </p><p>Caso contr&#225;rio, ir&#225; criar uma nova &quot;linha&quot; com aux&#237;lio das fun&#231;&#245;es
+&quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximoTerrenoVel" title="Tarefa2_2022li1g124">proximoTerrenoVel</a></code></strong>&quot; (para determinar o pr&#243;ximo <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>) e
+&quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximoObstaculo" title="Tarefa2_2022li1g124">proximoObstaculo</a></code></strong>&quot; (para determinar uma nova lista de Obst&#225;culos)</p><h2>Exemplo (para um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> sem <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s ou Obst&#225;culos)</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>estendeMapa (Mapa 6 []) 10
+</code></strong>Mapa 6 [(Relva,[Nenhum,Nenhum,Nenhum,Nenhum,Nenhum,Nenhum])]
+</pre></div></div><div class="top"><p class="src"><a id="v:primlin" class="def">primlin</a> :: Int -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] <a href="#v:primlin" class="selflink">#</a></p><div class="doc"><h2>primlin</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa2_2022li1g124.html#v:primlin" title="Tarefa2_2022li1g124">primlin</a></code></strong> &#233; uma fun&#231;&#227;o &quot;cega&quot; por assim dizer.
+<strong><code><a href="Tarefa2_2022li1g124.html#v:primlin" title="Tarefa2_2022li1g124">primlin</a></code></strong> aceita apenas a <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> de um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> e uma lista
+de obst&#225;culos &quot;qualquer&quot;, que, recursivamente, ser&#225; preenchida
+por Obst&#225;culos &quot;<strong><code><a href="LI12223.html#v:Nenhum" title="LI12223">Nenhum</a></code></strong>&quot; at&#233; ter um comprimento (length)
+igual &#224; <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> do <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></p><p>Podemos assim definir <strong><code><a href="Tarefa2_2022li1g124.html#v:primlin" title="Tarefa2_2022li1g124">primlin</a></code></strong> da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>primlin :: Int -&gt; [Obstaculo] -&gt; [Obstaculo]
+primlin l t | length t == l = t
+            | otherwise     = primlin l ((Nenhum):t)
+</pre><pre>    <strong>:: Int</strong>          recebe assim a <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> do <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code>
+    <strong>-&gt; [<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>]</strong>  ir&#225; receber uma lista de Obst&#225;culos (vinda da fun&#231;&#227;o estendeMapa
+                        que apenas lhe d&#225; uma lista vazia para, propositadamente, s&#243; ser
+                        capaz de criar uma lista de obst&#225;culos &quot;<strong><code><a href="LI12223.html#v:Nenhum" title="LI12223">Nenhum</a></code></strong>&quot; recursivamente)
+    <strong>-&gt; [<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>]</strong>  ir&#225; devolver uma lista de Obst&#225;culos (respetivamente, uma lista preenchida
+                        de Obst&#225;culos &quot;<strong><code><a href="LI12223.html#v:Nenhum" title="LI12223">Nenhum</a></code></strong>&quot;),
+</pre></div></div><div class="top"><p class="src"><a id="v:proximoTerrenoVel" class="def">proximoTerrenoVel</a> :: Int -&gt; <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; <a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a> <a href="#v:proximoTerrenoVel" class="selflink">#</a></p><div class="doc"><h2>proximoTerrenoVel</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximoTerrenoVel" title="Tarefa2_2022li1g124">proximoTerrenoVel</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que,
+auxiliada pelas fun&#231;&#245;es &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:randomizer" title="Tarefa2_2022li1g124">randomizer</a></code></strong>&quot; e &quot;<strong><code>proximosTerrenosValidos</code></strong>&quot;,
+determina qual ser&#225; o pr&#243;ximo <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> de uma lista de poss&#237;veis <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s.</p><p>Atrav&#233;s da fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:randomizer" title="Tarefa2_2022li1g124">randomizer</a></code></strong>&quot;, dependendo do n&#250;mero resultante ([0,1,2]),
+&quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximoTerrenoVel" title="Tarefa2_2022li1g124">proximoTerrenoVel</a></code></strong>&quot; ir&#225; escolher a cabe&#231;a, o &#250;ltimo membro ou at&#233; a cabe&#231;a
+da tail da lista de poss&#237;veis <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s.</p><p>Tal lista de poss&#237;veis <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s &#233; dada pela fun&#231;&#227;o auxiliar &quot;<strong><code>proximosTerrenosValidos</code></strong>&quot;</p><p>Podemos assim definir &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximoTerrenoVel" title="Tarefa2_2022li1g124">proximoTerrenoVel</a></code></strong>&quot; da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>proximoTerrenoVel :: Int -&gt; Mapa -&gt; Terreno
+proximoTerrenoVel x (Mapa l terobs) 
+      | random1 == 2 
+            = head (terrenosVels x (terreno))
+      | random1 == 1 
+            = head (tail (terrenosVels x (terreno)))
+      | random1 == 0 
+            = last (terrenosVels x (terreno))
+            where terreno = proximosTerrenosPossiveis (Mapa l (reverse terobs)) 0 0 0
+                  random1 = (mod (head(randomizer x)) 3)
+</pre><pre>    <strong>:: Int</strong>     recebe assim o n&#250;mero dado pelo Usu&#225;rio (o dado aleat&#243;rio)
+    <strong>-&gt; <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong>    recebe tamb&#233;m o <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> do <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> presente para a &quot;<strong><code>proximosTerrenosValidos</code></strong>&quot;
+                   conseguir perceber quais os <strong>Proximos <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s Validos</strong>
+    <strong>-&gt; <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code></strong> ir&#225; devolver um <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> poss&#237;vel decidido pela fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:randomizer" title="Tarefa2_2022li1g124">randomizer</a></code></strong>&quot;
+                   e escolhido de uma lista providenciada pela &quot;<strong><code>proximosTerrenosValidos</code></strong>&quot;
+</pre></div></div><div class="top"><p class="src"><a id="v:terrenosVels" class="def">terrenosVels</a> :: Int -&gt; [<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>] -&gt; [<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>] <a href="#v:terrenosVels" class="selflink">#</a></p><div class="doc"><h2>terrenosVels</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:terrenosVels" title="Tarefa2_2022li1g124">terrenosVels</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que, dado um Int e uma lista de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s 
+devolve uma lista de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s poss&#237;veis com aux&#237;lio da fun&#231;&#227;o
+&quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximosTerrenosPossiveis" title="Tarefa2_2022li1g124">proximosTerrenosPossiveis</a></code></strong>&quot;, e com <code><a href="LI12223.html#t:Velocidade" title="LI12223">Velocidade</a></code>s que variam do (-3) ao 3</p><p>Podemos assim definir &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:terrenosVels" title="Tarefa2_2022li1g124">terrenosVels</a></code></strong>&quot; da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>terrenosVels :: Int -&gt; [Terreno] -&gt; [Terreno]
+terrenosVels _ [] = []
+terrenosVels x (Relva:t) = (Relva):(terrenosVels x t)
+terrenosVels x ((Estrada k):t) | k == 0    = (Estrada ((posneg x) * (velrandom x))):(terrenosVels x t)
+                               | otherwise = (Estrada ((k) * (velrandom x))):(terrenosVels x t)
+terrenosVels x ((Rio k):t) | k == 0    = (Rio ((posneg x) * (velrandom x))):(terrenosVels x t)
+                           | otherwise = (Rio ((k) * (velrandom x))):(terrenosVels x t)
+velrandom x = (mod (head(randomizer (x+207))) 3) + 1
+</pre><pre>    <strong>:: Int</strong>      recebe um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> para percebe quais os pr&#243;ximos <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s poss&#237;veis 
+    <strong>-&gt; [Terreno]</strong> ir&#225; receber uma lista de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s com <code><a href="LI12223.html#t:Velocidade" title="LI12223">Velocidade</a></code>s que variam do
+                     (-1) ao 1,
+    <strong>-&gt; [Terreno]</strong> ir&#225; devolver uma lista de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s poss&#237;veis decidido pela 
+                     fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximosTerrenosPossiveis" title="Tarefa2_2022li1g124">proximosTerrenosPossiveis</a></code></strong>&quot;,
+</pre></div></div><div class="top"><p class="src"><a id="v:velrandom" class="def">velrandom</a> :: Int -&gt; Int <a href="#v:velrandom" class="selflink">#</a></p></div><div class="top"><p class="src"><a id="v:proximosTerrenosPossiveis" class="def">proximosTerrenosPossiveis</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; Int -&gt; Int -&gt; [<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>] <a href="#v:proximosTerrenosPossiveis" class="selflink">#</a></p><div class="doc"><h2>proximosTerrenosPossiveis</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximosTerrenosPossiveis" title="Tarefa2_2022li1g124">proximosTerrenosPossiveis</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que,
+dada um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code>, e tr&#234;s Inteiros (denominadamente, tr&#234;s 0's) 
+devolve uma lista de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s</p><p>Podemos assim definir &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximosTerrenosPossiveis" title="Tarefa2_2022li1g124">proximosTerrenosPossiveis</a></code></strong>&quot; da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>proximosTerrenosPossiveis :: Mapa -&gt; Int -&gt; Int -&gt; Int -&gt; [Terreno]
+proximosTerrenosPossiveis (Mapa larg (((Rio vel1), obs):[])) _ _ rio | (rio &lt; 3) 
+                                                                        = [Rio ((-1)*(signum vel1)), Estrada ((-1)*(signum vel1)), Relva]
+                                                                     | otherwise               
+                                                                        = [Estrada ((-1)*(signum vel1)), Relva]
+
+proximosTerrenosPossiveis (Mapa larg (((Estrada vel1), obs):[])) estr _ _ | (estr &lt; 3) 
+                                                                              = [Rio ((-1)*(signum vel1)), Estrada ((-1)*(signum vel1)), Relva]
+                                                                          | otherwise               
+                                                                              = [Rio ((-1)*(signum vel1)), Relva]
+
+proximosTerrenosPossiveis (Mapa larg []) _ relv _ | (relv &gt; 4)
+                                                      = [Rio 0, Estrada 0]                      
+                                                  | otherwise 
+                                                      = [Rio 0, Estrada 0, Relva]
+
+proximosTerrenosPossiveis (Mapa larg ((Estrada vel1, obs):t)) estr relv rio 
+      = proximosTerrenosPossiveis (Mapa larg t) (estr+1) 0 0
+
+proximosTerrenosPossiveis (Mapa larg ((Relva, obs):t)) estr relv rio       
+      = proximosTerrenosPossiveis (Mapa larg t) 0 (relv+1) 0
+
+proximosTerrenosPossiveis (Mapa larg ((Rio vel1, obs):t)) estr relv rio     
+      = proximosTerrenosPossiveis (Mapa larg t) 0 0 (rio+1)
+
+</pre><pre>    <strong>:: <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong>      recebe um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> para percebe quais os pr&#243;ximos <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s poss&#237;veis 
+    <strong>-&gt; Int</strong>       recebe um Int relacionado h&#225; quantidade de &quot;<strong><code><a href="LI12223.html#v:Estrada" title="LI12223">Estrada</a></code>s</strong>&quot; seguidas na lista
+    <strong>-&gt; Int</strong>       recebe um Int relacionado h&#225; quantidade de &quot;<strong><code><a href="LI12223.html#v:Relva" title="LI12223">Relva</a></code>s</strong>&quot; seguidas na lista
+    <strong>-&gt; Int</strong>       recebe um Int relacionado h&#225; quantidade de &quot;<strong>'<code><a href="LI12223.html#v:Rio" title="LI12223">Rio</a></code>s</strong>&quot; seguidas na lista
+    <strong>-&gt; [<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>]</strong> devolve uma lista de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s poss&#237;veis 
+</pre><p>Baseando-se nas condi&#231;&#245;es propostas na 1&#170; tarefa do projeto,
+a fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximosTerrenosPossiveis" title="Tarefa2_2022li1g124">proximosTerrenosPossiveis</a></code></strong>&quot; ir&#225; recursivamente ver
+todos os &quot;<strong><code>Terrenos</code></strong>&quot; de todos os pares da lista e ir&#225;
+concluir quais os <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s poss&#237;veis para continuar o <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code>
+(tendo em especial aten&#231;&#227;o a 2&#170; e 7&#170; condi&#231;&#227;o da tarefa 1)</p></div></div><div class="top"><p class="src"><a id="v:proximoObstaculo" class="def">proximoObstaculo</a> :: Int -&gt; Int -&gt; [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] <a href="#v:proximoObstaculo" class="selflink">#</a></p><div class="doc"><h2>proximoObstaculo</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximoObstaculo" title="Tarefa2_2022li1g124">proximoObstaculo</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que,
+dada um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code>, e tr&#234;s Inteiros (denominadamente, tr&#234;s 0's) 
+devolve uma lista de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s</p><p>Podemos assim definir &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximoObstaculo" title="Tarefa2_2022li1g124">proximoObstaculo</a></code></strong>&quot; da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>proximoObstaculo :: Int -&gt; Int -&gt; [(Terreno, [Obstaculo])] -&gt; [Obstaculo]
+proximoObstaculo x l ((ter, obs):t) 
+      | elem Tronco obs &amp;&amp; length obs == l               = bomRio obs
+      | ter == Relva &amp;&amp; length obs == l                  = boaRelva ((ter,obs):t) x
+      | proximosObstaculosValidos l ((ter, obs):t) == [] = obs
+      | even (head(tail (randomizer x)))                 = (proximoObstaculo ((x*3)+1) l ((ter, (obs ++ [proxobst1])):t))
+      | otherwise                                        = (proximoObstaculo ((x*3)+1) l ((ter, (obs ++ [proxobst2])):t))
+                                                            where proxobst1 = last (proximosObstaculosValidos l ((ter, obs):t))
+                                                                  proxobst2 = head (proximosObstaculosValidos l ((ter, obs):t))
+</pre><pre>    <strong>:: Int</strong>                         recebe um Int dado inicialmente pelo Usu&#225;rio que servir&#225; para fins de &quot;aleatoriedade&quot;
+    <strong>-&gt; Int</strong>                         recebe um Int relacionado h&#225; <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> do <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code>
+    <strong>-&gt; [(Terreno, [<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>])]</strong>    recebe uma lista de tuplos de pares <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> | lista de Obst&#225;culos para perceber com que <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> est&#225; a tratar 
+    <strong>-&gt; [<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>]</strong>                 devolve uma lista de &quot;<strong><code>Obst&#225;culos</code></strong>&quot; certa
+</pre><p>&quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximoObstaculo" title="Tarefa2_2022li1g124">proximoObstaculo</a></code></strong>&quot;ir&#225; usar as fun&#231;&#245;es auxiliares
+&quot;<strong>'randomizer x'</strong>&quot; para decidir quais os &quot;<strong><code>Obst&#225;culos</code></strong>&quot;
+ir&#225; adicionar para a lista final de obst&#225;culos, vindos estes
+da fun&#231;&#227;o auxiliar &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximosObstaculosValidos" title="Tarefa2_2022li1g124">proximosObstaculosValidos</a></code></strong>&quot;</p></div></div><div class="top"><p class="src"><a id="v:proximosObstaculosValidos" class="def">proximosObstaculosValidos</a> :: Int -&gt; [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] <a href="#v:proximosObstaculosValidos" class="selflink">#</a></p><div class="doc"><h2>proximosObstaculosValidos </h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximosObstaculosValidos" title="Tarefa2_2022li1g124">proximosObstaculosValidos</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que,
+dado um Inteiro relacionado &#224; <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> do <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code>, e um par 
+Terreno | lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s, deduz uma lista de poss&#237;veis 
+obst&#225;culos com aten&#231;&#227;o &#224;s condi&#231;&#245;es da primeira tarefa</p><p>Podemos assim definir &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximosObstaculosValidos" title="Tarefa2_2022li1g124">proximosObstaculosValidos</a></code></strong>&quot; da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>
+proximosObstaculosValidos :: Int -&gt; [(Terreno, [Obstaculo])] -&gt; [Obstaculo]
+proximosObstaculosValidos larg ((_, obs):t) | larg == length obs = []
+proximosObstaculosValidos larg ((Relva, obs):((Rio vel),obs2):t)
+      | (vel <a href="0">&amp;&amp; (not (elem Nenhum (take ((round((fromIntegral larg)/2))) obs)))) || (vel</a> 0 &amp;&amp; length obs &lt; round((fromIntegral larg)/2) &amp;&amp;  (not (elem Nenhum obs)))
+            = [Nenhum]
+      | otherwise                                                                                                                            
+            = [Nenhum, Arvore]
+
+proximosObstaculosValidos larg ((Relva, obs):((Estrada vel),obs2):t)
+      | (vel <a href="0">&amp;&amp; (not (elem Nenhum (take ((round((fromIntegral larg)/2))) obs)))) || (vel</a> 0 &amp;&amp; length obs &lt; round((fromIntegral larg)/2) &amp;&amp;  (not (elem Nenhum obs)))
+            = [Nenhum]
+      | otherwise                                                                                                                            
+            = [Nenhum, Arvore]
+proximosObstaculosValidos larg ((Relva, obs):t) = [Nenhum, Arvore]
+
+proximosObstaculosValidos larg ((Rio vel, obs):t)
+      |length obs == larg 
+            = []
+      |((drop (length obs - 2) obs) == [Nenhum,Tronco]) &amp;&amp; (not (tronquinho obs 0)) 
+      || (obs == [Tronco])
+      || (obs /= []) &amp;&amp; (not (elem Tronco (tail obs)) &amp;&amp; ((length obs) &gt;= larg-3)) 
+            = [Tronco]
+      |(tronquinho obs 0)
+      || (((length obs) &gt; larg-2) &amp;&amp; (head obs == Tronco) &amp;&amp; (tronquinho obs 0)) 
+      || (((length obs) &gt; larg-2) &amp;&amp; (head obs == Nenhum)) 
+            = [Nenhum]      
+      |otherwise 
+            = [Nenhum,Tronco]
+            where tronquinho obs k |(obs == []) || (head obs == Nenhum &amp;&amp; last obs == Nenhum) = k&gt; 4
+                                   |head obs == Tronco                                        = tronquinho (tail obs) (k+1)
+                                   |last obs == Tronco                                        = tronquinho (init obs) (k+1)
+                                   |otherwise                                                 = False
+
+
+proximosObstaculosValidos larg ((Estrada vel, obs):t) 
+      | (restaUmObs &amp;&amp; (obs !! 1 == Carro)) || (restaDoisObs &amp;&amp; head obs == Carro) || drop ((length obs) -3) obs == [Carro,Carro,Carro] || (drop ((length obs) -2) obs == [Carro,Nenhum])
+            = [Nenhum]
+      | otherwise                                                                                                                                
+            = [Nenhum,Carro]
+            where restaDoisObs = (larg - (length obs) &lt;= 2)  
+                  restaUmObs   = (larg - (length obs) &lt;= 1)    
+
+</pre><pre>    <strong>:: Int</strong>                        recebe um Int relacionado &#224; <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code>
+    <strong>-&gt; [(<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>, [<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>])]</strong>   recebe uma lista de tuplos de pares <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> | lista de Obst&#225;culos para perceber com que <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> est&#225; a tratar
+                                      para perceber que &quot;<strong><code>Obst&#225;culos</code></strong>&quot; pode devolver, tendo em conta as condi&#231;&#245;es da 1&#170; tarefa 
+    <strong>-&gt; [<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>]</strong>                devolve uma lista de &quot;<strong><code>Obst&#225;culos</code></strong>&quot; poss&#237;veis
+
+</pre><p>Baseando-se nas condi&#231;&#245;es propostas na 1&#170; tarefa do projeto,
+a fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximosObstaculosValidos" title="Tarefa2_2022li1g124">proximosObstaculosValidos</a></code></strong>&quot; ir&#225; recursivamente ver
+todos os &quot;<strong><code>Obst&#225;culos</code></strong>&quot; da lista e ir&#225; determinar uma lista
+de &quot;<strong><code>Obst&#225;culos</code></strong>&quot; adequada ao &quot;<strong><code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code></strong>&quot; dado,
+auxiliada pela fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:proximosObstaculosValidos" title="Tarefa2_2022li1g124">proximosObstaculosValidos</a></code></strong>&quot;
+concluir quais os <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s poss&#237;veis para continuar o <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code>
+(tendo em especial aten&#231;&#227;o a 1&#170;,3&#170;,4&#170;,5&#170; e 6&#170; condi&#231;&#227;o da tarefa 1)</p></div></div><div class="top"><p class="src"><a id="v:bomRio" class="def">bomRio</a> :: [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] <a href="#v:bomRio" class="selflink">#</a></p><div class="doc"><h2>bomRio</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:bomRio" title="Tarefa2_2022li1g124">bomRio</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que, recebendo uma lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s,
+verifica recursivamente se neste existem <code><a href="LI12223.html#v:Tronco" title="LI12223">Tronco</a></code>s, e caso isto seja verdadeiro,
+remove os <code><a href="LI12223.html#v:Tronco" title="LI12223">Tronco</a></code>s que n&#227;o est&#227;o acompanhados por pelo menos outro <code><a href="LI12223.html#v:Tronco" title="LI12223">Tronco</a></code>,
+tendo em conta, que posteriormente, ao querer que a parte gr&#225;fica descreva
+um &quot;deslocamento suave&quot;, ultrapassar um <code><a href="LI12223.html#v:Rio" title="LI12223">Rio</a></code> pode ser mais dif&#237;cil com apenas
+1 <code><a href="LI12223.html#v:Tronco" title="LI12223">Tronco</a></code></p><p>Podemos assim definir &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:bomRio" title="Tarefa2_2022li1g124">bomRio</a></code></strong>&quot; da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>bomRio :: [Obstaculo] -&gt; [Obstaculo]
+bomRio obs |length (elemIndices Nenhum obs) &lt; 2 = obs
+           |(head (tail (elemIndices Nenhum obs)))-(head (elemIndices Nenhum obs)) == 2 = (take (1+ head (elemIndices Nenhum obs)) obs) ++ [Nenhum] ++ (bomRio (drop (2+ head (elemIndices Nenhum obs)) obs)) 
+           | otherwise = (take (1+ head (elemIndices Nenhum obs)) obs) ++ (bomRio (drop (1+ head (elemIndices Nenhum obs)) obs))
+</pre><pre>    <strong>:: [<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>]</strong>   recebe uma lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+    <strong>-&gt; [<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>]</strong>   devolve uma lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+</pre></div></div><div class="top"><p class="src"><a id="v:boaRelva" class="def">boaRelva</a> :: [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; Int -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] <a href="#v:boaRelva" class="selflink">#</a></p><div class="doc"><h2>boaRelva</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:boaRelva" title="Tarefa2_2022li1g124">boaRelva</a></code></strong>&quot; ,tal como a fun&#231;&#227;o <strong><code><a href="Tarefa2_2022li1g124.html#v:bomRio" title="Tarefa2_2022li1g124">bomRio</a></code></strong>, verifica
+se a lista de <code><a href="LI12223.html#v:Relva" title="LI12223">Relva</a></code>s recebida tem pelo menos &quot;um caminho pass&#225;vel&quot;,
+caso contr&#225;rio, chama a fun&#231;&#227;o <strong><code><a href="Tarefa2_2022li1g124.html#v:actuallyBoaRelva" title="Tarefa2_2022li1g124">actuallyBoaRelva</a></code></strong> e reescreve
+a lista de tuplos pares <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> |lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s</p><p>Podemos assim definir &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:boaRelva" title="Tarefa2_2022li1g124">boaRelva</a></code></strong>&quot; da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>boaRelva :: [(Terreno,[Obstaculo])] -&gt; Int -&gt; [Obstaculo]
+boaRelva ((Relva,obs):t) x | (elem (replicate ((length (numRelvas ((Relva, obs):t)))) Nenhum) (obsRelvas(numRelvas ((Relva, obs):t)))) = obs
+                           | otherwise = actuallyBoaRelva (relvLinhas (numRelvas ((Relva,obs):t))) x 
+
+</pre><pre>    <strong>:: [(<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>,[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>])]</strong>   recebe uma lista de tuplos pares <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> | lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+    <strong>-&gt; Int</strong> recebe um Inteiro usado para aleatoriedade
+    <strong>-&gt; [<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>]</strong>   devolve uma lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+</pre></div></div><div class="top"><p class="src"><a id="v:actuallyBoaRelva" class="def">actuallyBoaRelva</a> :: [[<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]] -&gt; Int -&gt; [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] <a href="#v:actuallyBoaRelva" class="selflink">#</a></p></div><div class="top"><p class="src"><a id="v:posneg" class="def">posneg</a> :: Int -&gt; Int <a href="#v:posneg" class="selflink">#</a></p><div class="doc"><h2>posneg</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:posneg" title="Tarefa2_2022li1g124">posneg</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que, baseando-se
+na randomizer, decide se resulta num 1 ou num (-1),
+se o randomizer obtido pelo input do Usu&#225;rio for par
+ou &#237;mpar</p><p>Podemos assim definir &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:posneg" title="Tarefa2_2022li1g124">posneg</a></code></strong>&quot; da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>posneg :: Int -&gt; Int
+posneg x | odd (last (randomizer x)) = (-1)
+         | otherwise = 1
+</pre><pre>    <strong>:: Int</strong>   recebe um Int relacionado &#224; &quot;aleatoriedade&quot; da cria&#231;&#227;o de uma nova linha 
+    <strong>-&gt; Int</strong>   devolve um Int (1 ou (-1))
+</pre></div></div><div class="top"><p class="src"><a id="v:randomizer" class="def">randomizer</a> :: Int -&gt; [Int] <a href="#v:randomizer" class="selflink">#</a></p><div class="doc"><h2>randomizer</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:randomizer" title="Tarefa2_2022li1g124">randomizer</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que, 
+dado um Int pelo Usu&#225;rio, devolve um n&#250;mero
+&quot;pseudo-aleat&#243;rio&quot;</p><p>Podemos assim definir &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:randomizer" title="Tarefa2_2022li1g124">randomizer</a></code></strong>&quot; da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>randomizer :: Int -&gt; [Int]
+randomizer x 
+      = take 5 $ randoms (mkStdGen x)
+</pre><pre>    <strong>:: Int</strong>     recebe um Int relacionado &#224; &quot;aleatoriedade&quot; da cria&#231;&#227;o de uma nova linha 
+    <strong>-&gt; [Int]</strong>   devolve uma lista de 2 n&#250;meros &quot;pseudo-aleat&#243;rios&quot;
+</pre></div></div><div class="top"><p class="src"><a id="v:numRelvas" class="def">numRelvas</a> :: [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] <a href="#v:numRelvas" class="selflink">#</a></p><div class="doc"><h2>numRelvas</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:numRelvas" title="Tarefa2_2022li1g124">numRelvas</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que, 
+dado um tuplo de pares <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> | lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+Devolve apenas a lista contida na original, que apenas
+cont&#233;m <code><a href="LI12223.html#v:Relva" title="LI12223">Relva</a></code>s</p><h3>Defini&#231;&#227;o dada</h3><pre>numRelvas :: [(Terreno,[Obstaculo])] -&gt; [(Terreno,[Obstaculo])]
+numRelvas ((Relva,obs):t) 
+      = (Relva,obs):(numRelvas t)
+numRelvas _ 
+      = []
+</pre><pre>    <strong>:: [(<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>,[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>])]</strong>     recebe uma lista de tuplos de pares <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> | lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+    <strong>-&gt; [(<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>,[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>])]</strong>   devolve uma lista de tuplos de pares <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> | lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+</pre></div></div><div class="top"><p class="src"><a id="v:obsRelvas" class="def">obsRelvas</a> :: [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; [[<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]] <a href="#v:obsRelvas" class="selflink">#</a></p><div class="doc"><h2>obsRelvas</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:obsRelvas" title="Tarefa2_2022li1g124">obsRelvas</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que, 
+se considerarmos a lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s numa matriz,
+torna esta mesma matriz numa matriz transposta, com
+aux&#237;lio das fun&#231;&#245;es <strong><code><a href="Tarefa2_2022li1g124.html#v:relvLinhas" title="Tarefa2_2022li1g124">relvLinhas</a></code></strong> e <strong><code><a href="Tarefa2_2022li1g124.html#v:relvCols" title="Tarefa2_2022li1g124">relvCols</a></code></strong></p><h3>Defini&#231;&#227;o dada</h3><pre>obsRelvas :: [(Terreno,[Obstaculo])] -&gt; [[Obstaculo]]
+obsRelvas terobs 
+      = relvCols (relvLinhas terobs)
+</pre><pre>    <strong>:: [(<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>,[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>])]</strong>     recebe uma lista de tuplos de pares <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> | lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+    <strong>-&gt; [[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>]]</strong>   devolve uma lista de listas de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+</pre></div></div><div class="top"><p class="src"><a id="v:relvLinhas" class="def">relvLinhas</a> :: [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; [[<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]] <a href="#v:relvLinhas" class="selflink">#</a></p><div class="doc"><h2>relvLinhas</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:relvLinhas" title="Tarefa2_2022li1g124">relvLinhas</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que, 
+dada uma lista de tuplos de pares <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> | lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s,
+devolve uma lista de listas de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s</p><h3>Defini&#231;&#227;o dada</h3><pre>relvLinhas :: [(Terreno,[Obstaculo])] -&gt; [[Obstaculo]]
+relvLinhas []    
+      = []
+relvLinhas terobs 
+      = (map snd terobs)
+</pre><pre>    <strong>:: [(<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>,[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>])]</strong>     recebe um lista de tuplos de pares <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> | lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+    <strong>-&gt; [[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>]]</strong>   devolve uma lista de listas de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+</pre></div></div><div class="top"><p class="src"><a id="v:relvCols" class="def">relvCols</a> :: [[<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]] -&gt; [[<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]] <a href="#v:relvCols" class="selflink">#</a></p><div class="doc"><h2>relvCols</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:relvCols" title="Tarefa2_2022li1g124">relvCols</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que, 
+dada uma lista de listas de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s,
+considerando-a como uma matriz,
+devolve a matriz transposta da mesma</p><h3>Defini&#231;&#227;o dada</h3><pre>relvCols :: [[Obstaculo]] -&gt; [[Obstaculo]]
+relvCols [] 
+      = []
+relvCols ([]:t) 
+      = relvCols t
+relvCols obsObs 
+      = (map head obsObs):(relvCols (map tail obsObs))
+
+</pre><pre>    <strong>:: [[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>]]</strong>   recebe uma lista de listas de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+    <strong>-&gt; [[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>]]</strong>   devolve uma lista de listas de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+</pre></div></div><div class="top"><p class="src"><a id="v:velTer1" class="def">velTer1</a> :: <a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a> -&gt; Int <a href="#v:velTer1" class="selflink">#</a></p><div class="doc"><h2>velTer1</h2><p>A fun&#231;&#227;o &quot;<strong><code><a href="Tarefa2_2022li1g124.html#v:velTer1" title="Tarefa2_2022li1g124">velTer1</a></code></strong>&quot; &#233; uma fun&#231;&#227;o que, 
+dado um <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>, devolve a <code><a href="LI12223.html#t:Velocidade" title="LI12223">Velocidade</a></code> deste</p><h3>Defini&#231;&#227;o dada</h3><pre>
+velTer1 :: Terreno -&gt; Int
+velTer1 (Estrada vel) = vel
+velTer1 (Rio vel) = vel
+velTer1 (Relva) = 0
+
+</pre><pre>    <strong>:: <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code></strong>   recebe um <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>
+    <strong>-&gt; Int</strong>   devolve um Int
+</pre></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.23.0</p></div></body></html>

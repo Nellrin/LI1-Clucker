@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Tarefa1_2022li1g124</title><link href="linuwial.css" rel="stylesheet" type="text/css" title="Linuwial" /><link rel="stylesheet" type="text/css" href="quick-jump.css" /><script src="haddock-bundle.min.js" async="async" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { processClass: "mathjax", ignoreClass: ".*" } });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script></head><body><div id="package-header"><span class="caption empty">&nbsp;</span><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul></div><div id="content"><div id="module-header"><table class="info"><tr><th valign="top">Copyright</th><td>Frederico Cunha Afonso &lt;a104001@alunos.uminho.pt&gt;</td></tr><tr><th>Safe Haskell</th><td>Safe</td></tr></table><p class="caption">Tarefa1_2022li1g124</p></div><div id="description"><p class="caption">Description</p><div class="doc"><p>M&#243;dulo para a realiza&#231;&#227;o da Tarefa 1 do projeto de LI1 em 2022/23.</p></div></div><div id="synopsis"><details id="syn"><summary>Synopsis</summary><ul class="details-toggle" data-details-id="syn"><li class="src short"><a href="#v:mapaValido">mapaValido</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:verificacao1">verificacao1</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:verificacao2">verificacao2</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:verificacao3">verificacao3</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:verificacao4">verificacao4</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:verificacao5">verificacao5</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:verificacao6">verificacao6</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:verificacao7">verificacao7</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li></ul></details></div><div id="interface"><h1>Documentation</h1><div class="top"><p class="src"><a id="v:mapaValido" class="def">mapaValido</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:mapaValido" class="selflink">#</a></p><div class="doc"><h2>mapaValido</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa1_2022li1g124.html#v:mapaValido" title="Tarefa1_2022li1g124">mapaValido</a></code></strong> ir&#225; analisar o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> que lhe for submetido 
+e dar&#225; uma avalia&#231;&#227;o bin&#225;ria do mesmo, avaliando-o tendo em conta v&#225;rios 
+crit&#233;rios que foram apresentados no enunciado providenciado pelos docentes.</p><p>Para facilitar este processo, <strong><code><a href="Tarefa1_2022li1g124.html#v:mapaValido" title="Tarefa1_2022li1g124">mapaValido</a></code></strong> divide-se em 7 verifica&#231;&#245;es 
+diferentes, que em si abordam diferentes condi&#231;&#245;es que o mapa do jogo ter&#225; 
+de ter em conta para ser avaliado como <em>True</em> (V&#225;lido).</p><p>Podemos assim definir <strong><code><a href="Tarefa1_2022li1g124.html#v:mapaValido" title="Tarefa1_2022li1g124">mapaValido</a></code></strong> da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>mapaValido :: Mapa -&gt; Bool
+mapaValido m = verificacao1 m &amp;&amp; verificacao2 m  &amp;&amp; verificacao3 m &amp;&amp; verificacao4 m &amp;&amp; verificacao5 m &amp;&amp; verificacao6 m &amp;&amp; verificacao7 m
+</pre><pre>    <strong>:: Mapa</strong>  assume-se qualquer mapa a esta fun&#231;&#227;o
+    <strong>-&gt; Bool</strong>  a fun&#231;&#227;o devolve um Booleano que afirma a validez do mapa providenciado
+</pre><p>Para a fun&#231;&#227;o estar correta, cada verifica&#231;&#227;o acima ir&#225; devolver um Booleano 
+que ir&#225; confirmar uma certa condi&#231;&#227;o que fora inicialmente apresentada no 
+enunciado</p></div></div><div class="top"><p class="src"><a id="v:verificacao1" class="def">verificacao1</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:verificacao1" class="selflink">#</a></p><div class="doc"><h2>verificacao1</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao1" title="Tarefa1_2022li1g124">verificacao1</a></code></strong> ir&#225; analisar o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> que lhe foi submetido pelo 
+<strong><code><a href="Tarefa1_2022li1g124.html#v:mapaValido" title="Tarefa1_2022li1g124">mapaValido</a></code></strong> e dar&#225; uma avalia&#231;&#227;o bin&#225;ria do mesmo tendo em conta a 1&#170; condi&#231;&#227;o
+apresentada, &quot;N&#227;o existem obst&#225;culos em terrenos impr&#243;prios, e.g. troncos em es-
+tradas ou relvas, &#225;rvores em rios ou estradas, etc.&quot;</p><p>Podemos assim definir <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao1" title="Tarefa1_2022li1g124">verificacao1</a></code></strong> da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>verificacao1 :: Mapa -&gt; Bool 
+verificacao1 (Mapa l []) = True
+verificacao1 (Mapa l ((Rio _, obs):t))     = ((not (elem Arvore obs)) &amp;&amp; (not (elem Carro obs))) &amp;&amp; verificacao1 (Mapa l t)
+verificacao1 (Mapa l ((Estrada _, obs):t)) = ((not (elem Arvore obs)) &amp;&amp; (not (elem Tronco obs))) &amp;&amp; verificacao1 (Mapa l t)
+verificacao1 (Mapa l ((Relva, obs):t))     = ((not (elem Tronco obs)) &amp;&amp; (not (elem Carro obs))) &amp;&amp; verificacao1 (Mapa l t)
+</pre><pre>    <strong>:: Mapa</strong>  assume-se qualquer mapa a esta fun&#231;&#227;o
+    <strong>-&gt; Bool</strong>  a fun&#231;&#227;o devolve um Booleano que afirma se o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> 
+                 dado cont&#233;m obst&#225;culos em terrenos impr&#243;prios
+</pre><p>Aqui, <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao1" title="Tarefa1_2022li1g124">verificacao1</a></code></strong> ir&#225; avaliar a cabe&#231;a de cada lista, analisando se &quot;n&#227;o cont&#233;m&quot; obst&#225;culos que n&#227;o 
+lhe pertencem, continuando at&#233; ao fim da lista.</p><h2>Exemplo (para um terreno &quot;Rio _&quot; de 3 de largura)</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>not (elem Arvore [Tronco,Nenhum,Nenhum])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>not (elem Arvore [Carro, Nenhum,Nenhum])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>not (elem Arvore [Nenhum,Tronco,Arvore])
+</code></strong>False
+</pre><p>Aplicando este racioc&#237;nio a outros obst&#225;culos que n&#227;o pertencem ao terreno &quot;Rio _&quot;, obteremos uma fun&#231;&#227;o
+que deteta obst&#225;culos que n&#227;o deviam pertencer em qualquer &quot;Rio _&quot;, mas que de facto est&#227;o l&#225; presentes
+Continuando tal racioc&#237;nio para todos os terrenos, temos a fun&#231;&#227;o conclu&#237;da e funcional. </p></div></div><div class="top"><p class="src"><a id="v:verificacao2" class="def">verificacao2</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:verificacao2" class="selflink">#</a></p><div class="doc"><h2>verificacao2</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao2" title="Tarefa1_2022li1g124">verificacao2</a></code></strong> ir&#225; analisar o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> que lhe foi submetido pelo 
+<strong><code><a href="Tarefa1_2022li1g124.html#v:mapaValido" title="Tarefa1_2022li1g124">mapaValido</a></code></strong> e dar&#225; uma avalia&#231;&#227;o bin&#225;ria do mesmo tendo em conta a 2&#170; condi&#231;&#227;o
+apresentada, &quot;Rios cont&#305;&#769;guos t&#234;m direc&#231;&#245;es opostas.&quot;</p><p>Podemos assim definir <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao2" title="Tarefa1_2022li1g124">verificacao2</a></code></strong> da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>verificacao2 :: Mapa -&gt; Bool 
+verificacao2 (Mapa larg []) = True
+verificacao2 (Mapa larg ((Rio vel1, obs1):(Rio vel2, obs2):t)) | vel1 * vel2 &lt; 0 = verificacao2 (Mapa larg ((Rio vel2, obs2):t))
+                                                               | otherwise       = False
+verificacao2 (Mapa larg (_:t)) = verificacao2 (Mapa larg t)
+</pre><pre>    <strong>:: Mapa</strong>  assume-se qualquer mapa a esta fun&#231;&#227;o
+    <strong>-&gt; Bool</strong>  a fun&#231;&#227;o devolve um Booleano que afirma se o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> 
+                 dado cont&#233;m rios cont&#237;guos de dire&#231;&#245;es divergentes
+</pre><p>Aqui, <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao2" title="Tarefa1_2022li1g124">verificacao2</a></code></strong> ir&#225; avaliar os 2 primeiros elementos de cada lista (<strong>h1:h2</strong>:xs), 
+analisando se s&#227;o 2 terrenos &quot;Rio _&quot;.Se n&#227;o o forem, &#237;r&#225; deixar a cabe&#231;a da lista e ir&#225;
+analisar o pr&#243;ximo par poss&#237;vel. Caso n&#227;o haja qualquer par de rios cont&#237;guos, a fun&#231;&#227;o
+diz-se <em>True</em> (Verdadeira). Caso contr&#225;rio, o produto das velocidades dos dois Rios cont&#237;guos, 
+ter&#225; de ser negativa, pois o produto de qualquer negativo por qualquer positivo
+&#233; menor do que 0</p><h2>Exemplo (para dois Rios cont&#237;guos de uma certa lista)</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>verificacao2 (Mapa 3 [(Rio 3, [Nenhum,Tronco,Tronco]),(Rio (-1), [Tronco,Nenhum,Tronco])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>verificacao2 (Mapa 3 [(Rio 3, [Nenhum,Tronco,Tronco]),(Rio 1, [Tronco,Nenhum,Tronco])])
+</code></strong>False
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>verificacao2 (Mapa 3 [(Relva,Nenhum,Nenhum]), (Rio 3, [Tronco,Tronco]),(Rio (-1), [Nenhum,Tronco])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>verificacao2 (Mapa 2 [(Relva,[Nenhum,Nenhum]), (Rio 3, [Nenhum,Tronco]), (Rio 1, [Tronco,Tronco])])
+</code></strong>False 
+</pre></div></div><div class="top"><p class="src"><a id="v:verificacao3" class="def">verificacao3</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:verificacao3" class="selflink">#</a></p><div class="doc"><h2>verificacao3</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao3" title="Tarefa1_2022li1g124">verificacao3</a></code></strong> ir&#225; analisar o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> que lhe foi submetido pelo 
+<strong><code><a href="Tarefa1_2022li1g124.html#v:mapaValido" title="Tarefa1_2022li1g124">mapaValido</a></code></strong> e dar&#225; uma avalia&#231;&#227;o bin&#225;ria do mesmo tendo em conta a 3&#170; condi&#231;&#227;o
+apresentada, &quot;Troncos t&#234;m, no m&#225;ximo, 5 unidades de comprimento.&quot;</p><p>Podemos assim definir <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao3" title="Tarefa1_2022li1g124">verificacao3</a></code></strong> da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>verificacao3 :: Mapa -&gt; Bool
+verificacao3 (Mapa l [])              = True
+verificacao3 (Mapa l ((Rio _, []):t)) = verificacao3 (Mapa l t)
+verificacao3 (Mapa l ((Rio velrio, obs):t)) | (elem Nenhum obs) &amp;&amp; (last obs == Tronco)                         = verificacao3 (Mapa l ((Rio velrio, (last obs:init obs)):t))
+                                            | (elem Tronco (head (group obs))) &amp;&amp; length (head (group obs)) &gt; 5 = False  
+                                            | otherwise                                                         = verificacao3 (Mapa l ((Rio velrio, (tail obs)):t))
+verificacao3 (Mapa l ((_, obs):t)) = verificacao3 (Mapa l t)
+</pre><pre>    <strong>:: Mapa</strong>  assume-se qualquer mapa a esta fun&#231;&#227;o
+    <strong>-&gt; Bool</strong>  a fun&#231;&#227;o devolve um Booleano que afirma se o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> dado cont&#233;m uma 
+                 lista de obst&#225;culos com Troncos de mais de 5 de comprimento
+</pre><p>Aqui, <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao3" title="Tarefa1_2022li1g124">verificacao3</a></code></strong> ir&#225; procurar na lista de pares TerrenoObst&#225;culos, um par
+com Terreno &quot;Rio _&quot; e que deixe qualquer outro &quot;para tr&#225;s&quot; ou &quot;por avaliar&quot;, sendo
+que mais nenhum Terreno aceita Troncos, nunca ter&#227;o mais de 5 troncos, logo, satisfaz
+a condi&#231;&#227;o dada.
+Ao encontrar tal Terreno, ir&#225; &quot;ordenar&quot; a lista de obst&#225;culos de forma a que, se de facto
+existir o Obst&#225;culo &quot;<strong><code><a href="LI12223.html#v:Nenhum" title="LI12223">Nenhum</a></code></strong>&quot; nesta lista e se o &#250;ltimo elemento desta for um 
+&quot;<strong><code><a href="LI12223.html#v:Tronco" title="LI12223">Tronco</a></code></strong>&quot;, ir&#225; mover o &#250;ltimo &quot;<strong><code><a href="LI12223.html#v:Tronco" title="LI12223">Tronco</a></code></strong>&quot; para a cabe&#231;a da lista. Tal at&#233; que o &#250;ltimo 
+elemento da lista seja um &quot;<strong><code><a href="LI12223.html#v:Nenhum" title="LI12223">Nenhum</a></code></strong>&quot;. Ao ter &quot;ordenado&quot; a lista, usar&#225; a fun&#231;&#227;o <strong>group</strong>
+e criar&#225; uma lista de listas.
+Com esta nova lista, s&#243; teremos de ir de uma ponta da lista &#224; outra, &#224; procura de uma lista
+(dentro da nova lista criada), que tenha um elemento &quot;<strong><code><a href="LI12223.html#v:Tronco" title="LI12223">Tronco</a></code></strong>&quot; e que tenha um tamanho
+superior a 5, sendo que, pela fun&#231;&#227;o group, se existe 1 certo obst&#225;culo numa lista da lista
+criada, todos os elementos dessa lista em espec&#237;fico ser&#227;o esse mesmo certo obst&#225;culo.  </p><h2>Exemplo (para um Rio qualquer)</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>verificacao3 (Mapa 8 [(Rio 3, [Nenhum,Tronco,Tronco,Tronco,Tronco,Tronco,Nenhum,Tronco,Nenhum])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>group [Nenhum,Tronco,Tronco,Tronco,Tronco,Tronco,Nenhum,Tronco,Nenhum]
+</code></strong>[[Nenhum],[Tronco,Tronco,Tronco,Tronco,Tronco],[Nenhum],[Tronco],[Nenhum]]
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>length [Tronco,Tronco,Tronco,Tronco,Tronco]
+</code></strong>5
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>length [Nenhum]
+</code></strong>1
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>length [Tronco]
+</code></strong>1
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>length [Nenhum]
+</code></strong>1
+</pre></div></div><div class="top"><p class="src"><a id="v:verificacao4" class="def">verificacao4</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:verificacao4" class="selflink">#</a></p><div class="doc"><h2>verificacao4</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao4" title="Tarefa1_2022li1g124">verificacao4</a></code></strong> ir&#225; analisar o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> que lhe foi submetido pelo 
+<strong><code><a href="Tarefa1_2022li1g124.html#v:mapaValido" title="Tarefa1_2022li1g124">mapaValido</a></code></strong> e dar&#225; uma avalia&#231;&#227;o bin&#225;ria do mesmo tendo em conta a 4&#170; condi&#231;&#227;o
+apresentada, &quot;Carros t&#234;m, no m&#225;ximo, 3 unidades de comprimento.&quot;</p><p>Podemos assim definir <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao4" title="Tarefa1_2022li1g124">verificacao4</a></code></strong> da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>verificacao4 :: Mapa -&gt; Bool
+verificacao4 (Mapa l []) = True
+verificacao4 (Mapa l ((Estrada _, []):t)) = verificacao4 (Mapa l t)
+verificacao4 (Mapa l ((Estrada velest, obs):t)) | (elem Nenhum obs) &amp;&amp; (last obs == Carro)                           = verificacao4 (Mapa l ((Estrada velest, (last obs: init obs)):t))
+                                                | (elem Carro (head (group obs))) &amp;&amp; (length (head (group obs)) &gt; 3) = False
+                                                | otherwise                                                          = verificacao4 (Mapa l ((Estrada velest, (tail obs)):t))
+verificacao4 (Mapa l ((_, obs):t)) = verificacao4 (Mapa l t)
+</pre><pre>    <strong>:: Mapa</strong>  assume-se qualquer mapa a esta fun&#231;&#227;o
+    <strong>-&gt; Bool</strong>  a fun&#231;&#227;o devolve um Booleano que afirma se o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> dado cont&#233;m uma 
+                 lista de obst&#225;culos com Carros de mais de 3 de comprimento
+</pre><p>Podemos reutilizar o racioc&#237;nio usado para definir a fun&#231;&#227;o anterior
+nesta nova fun&#231;&#227;o, sendo os fins imensamente parecidos, s&#243;
+diferindo no Terreno e no Obst&#225;culo</p><h2>Exemplo (para uma Estrada qualquer)</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>verificacao3 (Mapa 6 [(Estrada 3, [Nenhum,Carro,Carro,Carro,Carro,Nenhum,Nenhum,Nenhum,Nenhum])])
+</code></strong>False
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>group [Nenhum,Carro,Carro,Carro,Carro,Nenhum,Nenhum,Nenhum,Nenhum]
+</code></strong>[[Nenhum],[Carro,Carro,Carro,Carro],[Nenhum,Nenhum,Nenhum,Nenhum]]
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>length [Nenhum]
+</code></strong>1
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>length [Carro,Carro,Carro,Carro]
+</code></strong>4
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>length [Nenhum,Nenhum,Nenhum,Nenhum]
+</code></strong>4
+</pre></div></div><div class="top"><p class="src"><a id="v:verificacao5" class="def">verificacao5</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:verificacao5" class="selflink">#</a></p><div class="doc"><h2>verificacao5</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao5" title="Tarefa1_2022li1g124">verificacao5</a></code></strong> ir&#225; analisar o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> que lhe foi submetido pelo 
+<strong><code><a href="Tarefa1_2022li1g124.html#v:mapaValido" title="Tarefa1_2022li1g124">mapaValido</a></code></strong> e dar&#225; uma avalia&#231;&#227;o bin&#225;ria do mesmo tendo em conta a 5&#170; condi&#231;&#227;o
+apresentada, &quot;Em qualquer linha existe, no m&#305;&#769;nimo, um &#8220;obst&#225;culo&#8221; &quot;<strong><code><a href="LI12223.html#v:Nenhum" title="LI12223">Nenhum</a></code></strong>&quot;. Ou
+seja, uma linha n&#227;o pode ser composta exclusivamente por obst&#225;culos,
+precisando de haver pelo menos um espa&#231;o livre.&quot;</p><p>Podemos assim definir <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao5" title="Tarefa1_2022li1g124">verificacao5</a></code></strong> da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>verificacao5 :: Mapa -&gt; Bool
+verificacao5 (Mapa larg [])           = True
+verificacao5 (Mapa larg ((_, obs):t)) = (elem Nenhum obs) &amp;&amp; verificacao5 (Mapa larg t)
+</pre><pre>    <strong>:: Mapa</strong>  assume-se qualquer mapa a esta fun&#231;&#227;o
+    <strong>-&gt; Bool</strong>  a fun&#231;&#227;o devolve um Booleano que afirma se no &quot;<strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong>&quot; dado, para todos
+                 os Terrenos presentes, h&#225; uma lista de obst&#225;culos que contem presentes 
+                 pelo menos um obst&#225;culo &quot;<strong><code><a href="LI12223.html#v:Nenhum" title="LI12223">Nenhum</a></code></strong>&quot;
+</pre><p>Aqui podemos ter um racioc&#237;nio mais direto.
+Para qualquer Terreno, tem de existir pelo menos 1 Obst&#225;culo &quot;<strong><code><a href="LI12223.html#v:Nenhum" title="LI12223">Nenhum</a></code></strong>&quot;.
+E recursivamente vemos da cabe&#231;a da lista, at&#233; ao &#250;ltimo membro da lista
+(como temos feito com a maioria das fun&#231;&#245;es aqui demonstradas)</p><h2>Exemplo (para uma Estrada qualquer)</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>verificacao5 (Mapa 6 [(Estrada 3, [Nenhum,Carro,Carro,Carro,Carro,Nenhum,Nenhum,Nenhum,Nenhum])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>elem Nenhum [Nenhum,Carro,Carro,Carro,Carro,Nenhum,Nenhum,Nenhum,Nenhum]
+</code></strong>True
+</pre></div></div><div class="top"><p class="src"><a id="v:verificacao6" class="def">verificacao6</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:verificacao6" class="selflink">#</a></p><div class="doc"><h2>verificacao6</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao6" title="Tarefa1_2022li1g124">verificacao6</a></code></strong> ir&#225; analisar o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> que lhe foi submetido pelo 
+<strong><code><a href="Tarefa1_2022li1g124.html#v:mapaValido" title="Tarefa1_2022li1g124">mapaValido</a></code></strong> e dar&#225; uma avalia&#231;&#227;o bin&#225;ria do mesmo tendo em conta a 6&#170; condi&#231;&#227;o
+apresentada, &quot;O comprimento da lista de obst&#225;culos de cada linha corresponde exac-
+tamente &#224; largura do mapa.&quot;</p><p>Podemos assim definir <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao6" title="Tarefa1_2022li1g124">verificacao6</a></code></strong> da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>verificacao6 :: Mapa -&gt; Bool
+verificacao6 (Mapa larg [])           = True
+verificacao6 (Mapa larg ((_, obs):t)) = (length obs == larg) &amp;&amp; verificacao6 (Mapa larg t)
+</pre><pre>    <strong>:: Mapa</strong>  assume-se qualquer mapa a esta fun&#231;&#227;o
+    <strong>-&gt; Bool</strong>  a fun&#231;&#227;o devolve um Booleano que afirma que no <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> dado, todas
+                 as listas de Obst&#225;culos t&#234;m um comprimento igual &#224; largura do Mapa
+</pre><p>Aqui podemos ter, mais uma vez, um racioc&#237;nio mais direto.
+Se a largura da lista de Obst&#225;culos for igual &#224; largura do mapa,
+avaliamos a pr&#243;xima lista de Obst&#225;culos do pr&#243;ximo par da lista de pares
+at&#233; s&#243; nos restar um conjunto vazio.</p><h2>Exemplo (para uma Estrada qualquer)</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>verificacao6 (Mapa 6 [(Estrada 3, [Nenhum,Carro,Carro,Carro,Carro,Nenhum,Nenhum,Nenhum,Nenhum])])
+</code></strong>False
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>length [Nenhum,Carro,Carro,Carro,Carro,Nenhum,Nenhum,Nenhum,Nenhum] == 6
+</code></strong>False
+</pre></div></div><div class="top"><p class="src"><a id="v:verificacao7" class="def">verificacao7</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:verificacao7" class="selflink">#</a></p><div class="doc"><h2>verificacao7</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao7" title="Tarefa1_2022li1g124">verificacao7</a></code></strong> ir&#225; analisar o <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> que lhe foi submetido pelo 
+<strong><code><a href="Tarefa1_2022li1g124.html#v:mapaValido" title="Tarefa1_2022li1g124">mapaValido</a></code></strong> e dar&#225; uma avalia&#231;&#227;o bin&#225;ria do mesmo tendo em conta a 6&#170; condi&#231;&#227;o
+apresentada, &quot;Contiguamente, n&#227;o devem existir mais do que 4 rios, nem 5 estradas
+ou relvas.&quot;</p><p>Podemos assim definir <strong><code><a href="Tarefa1_2022li1g124.html#v:verificacao7" title="Tarefa1_2022li1g124">verificacao7</a></code></strong> da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>verificacao7 :: Mapa -&gt; Bool
+verificacao7 (Mapa larg [])                                                                                            = True
+verificacao7 (Mapa larg ((Relva, _):(Relva, _):(Relva, _):(Relva, _):(Relva, _):(Relva, _):t))                         = False
+verificacao7 (Mapa larg ((Estrada _, _):(Estrada _, _):(Estrada _, _):(Estrada _, _):(Estrada _, _):(Estrada _, _):t)) = False
+verificacao7 (Mapa larg ((Rio _, _):(Rio _, _):(Rio _, _):(Rio _, _):(Rio _, _):t))                                    = False 
+verificacao7 (Mapa larg (_:t)) = verificacao7 (Mapa larg t)
+</pre><pre>    <strong>:: Mapa</strong>  assume-se qualquer mapa a esta fun&#231;&#227;o
+    <strong>-&gt; Bool</strong>  a fun&#231;&#227;o devolve um Booleano que afirma que no <strong><code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> dado,
+                 n&#227;o existem mais de 4 <strong><code>Rios</code></strong> ou 5 <strong><code>Estradas</code></strong> ou <strong><code>Relvas</code></strong> 
+                 cont&#237;guos
+
+</pre><p>Finalmente, nesta &#250;ltima quest&#227;o temos uma condi&#231;&#227;o mais complexa,
+mas para contrariar o enunciado, conseguimos simplificar isto 
+de tal maneira, que s&#243; precisamos de dar 5 condi&#231;&#245;es:</p><ol><li>Para uma lista de pares vazia, temos que o Mapa &#233; <em>True</em> (Verdadeiro)</li><li>Para uma lista de pares, onde haja 6 pares seguidos que tenham como terreno comum <strong><code>Relvas</code></strong>,
+    temos que o Mapa &#233; <em>False</em> (Falso)</li><li>Para uma lista de pares, onde haja 6 pares seguidos que tenham como terreno comum <strong><code>Estradas</code></strong>,
+    temos que o Mapa &#233; <em>False</em> (Falso)</li><li>Para uma lista de pares, onde haja 5 pares seguidos que tenham como terreno comum <strong><code>Rios</code></strong>,
+    temos que o Mapa &#233; <em>False</em> (Falso)</li><li>Para qualquer outro caso, analisar a lista de pares com excess&#227;o &#224; cabe&#231;a at&#233; o conjunto
+    se vir vazio (passando &#224; primeira condi&#231;&#227;o)</li></ol><h2>Exemplo (para uma Estrada qualquer)</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>verificacao6 (Mapa 6 [(Estrada 1, [Nenhum]),(Estrada 1, [Nenhum]),(Estrada 1, [Nenhum]),(Estrada 1, [Nenhum]),(Estrada 1, [Nenhum]),(Estrada 1, [Nenhum])])
+</code></strong>False
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>verificacao6 (Mapa 6 [(Estrada 1, [Nenhum]),(Relva, [Nenhum]),(Estrada 1, [Nenhum]),(Estrada 1, [Nenhum]),(Estrada 1, [Nenhum]),(Estrada 1, [Nenhum]),(Estrada 1, [Nenhum])])
+</code></strong>True
+</pre></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.23.0</p></div></body></html>

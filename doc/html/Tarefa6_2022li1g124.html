@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Tarefa6_2022li1g124</title><link href="linuwial.css" rel="stylesheet" type="text/css" title="Linuwial" /><link rel="stylesheet" type="text/css" href="quick-jump.css" /><script src="haddock-bundle.min.js" async="async" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { processClass: "mathjax", ignoreClass: ".*" } });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script></head><body><div id="package-header"><span class="caption empty">&nbsp;</span><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul></div><div id="content"><div id="module-header"><table class="info"><tr><th valign="top">Copyright</th><td>Frederico Cunha Afonso &lt;a104001@alunos.uminho.pt&gt;<br />Diogo Teixeira Fernandes &lt;a104260@alunos.uminho.pt&gt;</td></tr><tr><th>Safe Haskell</th><td>None</td></tr></table><p class="caption">Tarefa6_2022li1g124</p></div><div id="description"><p class="caption">Description</p><div class="doc"><p>M&#243;dulo para a realiza&#231;&#227;o da Tarefa 6 do projeto de LI1 em 2022/23.</p></div></div><div id="synopsis"><details id="syn"><summary>Synopsis</summary><ul class="details-toggle" data-details-id="syn"><li class="src short"><span class="keyword">type</span> <a href="#t:WORLD">WORLD</a> = (<a href="Tarefa6_2022li1g124.html#t:TinyWorld" title="Tarefa6_2022li1g124">TinyWorld</a>, ([[Picture]], <a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a>, Float, Int))</li><li class="src short"><span class="keyword">type</span> <a href="#t:TinyWorld">TinyWorld</a> = (<a href="Tarefa6_2022li1g124.html#t:Interface" title="Tarefa6_2022li1g124">Interface</a>, [Int], (Int, Int))</li><li class="src short"><span class="keyword">data</span> <a href="#t:Interface">Interface</a><ul class="subs"><li>= <a href="#v:Menu">Menu</a> <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a> <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a> Int [Char]</li><li>| <a href="#v:Gamer">Gamer</a> <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a> <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a> Int Bool</li></ul></li><li class="src short"><span class="keyword">data</span> <a href="#t:Unlocked">Unlocked</a><ul class="subs"><li>= <a href="#v:Locked">Locked</a></li><li>| <a href="#v:Frogger">Frogger</a></li></ul></li><li class="src short"><span class="keyword">data</span> <a href="#t:SmolMenu">SmolMenu</a><ul class="subs"><li>= <a href="#v:Queueing">Queueing</a> (Int, Int)</li><li>| <a href="#v:Starting">Starting</a></li><li>| <a href="#v:Instrucoes">Instrucoes</a></li></ul></li><li class="src short"><span class="keyword">data</span> <a href="#t:Mode">Mode</a><ul class="subs"><li>= <a href="#v:Classic">Classic</a> Int</li><li>| <a href="#v:Doom">Doom</a></li><li>| <a href="#v:TRUE_CLASSIC">TRUE_CLASSIC</a></li><li>| <a href="#v:Undefined">Undefined</a></li></ul></li><li class="src short"><a href="#v:tinyWorldInicial">tinyWorldInicial</a> :: <a href="Tarefa6_2022li1g124.html#t:TinyWorld" title="Tarefa6_2022li1g124">TinyWorld</a></li><li class="src short"><a href="#v:worldInicial">worldInicial</a> :: [[Picture]] -&gt; <a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a> -&gt; Int -&gt; <a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></li><li class="src short"><a href="#v:worldBuilder">worldBuilder</a> :: <a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a> -&gt; Picture</li><li class="src short"><a href="#v:scoreboard">scoreboard</a> :: Bool -&gt; Float -&gt; [Picture]</li><li class="src short"><a href="#v:froggerTerrenos">froggerTerrenos</a> :: [Picture] -&gt; [<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>] -&gt; (Float, Float) -&gt; [Picture]</li><li class="src short"><a href="#v:froggerObstaculos">froggerObstaculos</a> :: [Picture] -&gt; [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; (Float, Float) -&gt; [Picture]</li><li class="src short"><a href="#v:terrenosClassic">terrenosClassic</a> :: [Picture] -&gt; [<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>] -&gt; (Float, Float) -&gt; <a href="LI12223.html#t:Largura" title="LI12223">Largura</a> -&gt; [Picture]</li><li class="src short"><a href="#v:obstaculosClassic">obstaculosClassic</a> :: [Picture] -&gt; <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Float -&gt; (Float, Float) -&gt; <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a> -&gt; [Picture]</li><li class="src short"><a href="#v:terrenosDoom">terrenosDoom</a> :: ([Picture], [Picture], [Picture], [Picture]) -&gt; <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; (Int, Int) -&gt; <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a> -&gt; [Picture]</li><li class="src short"><a href="#v:obstaculosDoom">obstaculosDoom</a> :: [Picture] -&gt; <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; (Int, Int) -&gt; <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a> -&gt; [Picture]</li><li class="src short"><a href="#v:distancias">distancias</a> :: <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a> -&gt; [Picture] -&gt; Int -&gt; Picture</li><li class="src short"><a href="#v:worldReaction">worldReaction</a> :: Event -&gt; <a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a> -&gt; <a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></li><li class="src short"><a href="#v:tokioTomare">tokioTomare</a> :: Float -&gt; <a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a> -&gt; <a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></li><li class="src short"><a href="#v:moveObsCorrente">moveObsCorrente</a> :: [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a> -&gt; Float -&gt; ([(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])], <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a>)</li><li class="src short"><a href="#v:moveObs">moveObs</a> :: [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a> -&gt; Float -&gt; [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])]</li><li class="src short"><a href="#v:jogoInicial">jogoInicial</a> :: Int -&gt; <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a> -&gt; <a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></li><li class="src short"><a href="#v:mapaEstendidoInicial">mapaEstendidoInicial</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; Int -&gt; <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></li><li class="src short"><a href="#v:alturaMapa">alturaMapa</a> :: Int -&gt; Int</li><li class="src short"><a href="#v:fr">fr</a> :: Int</li><li class="src short"><a href="#v:dm">dm</a> :: Display</li></ul></details></div><div id="interface"><h1>Documentation</h1><div class="top"><p class="src"><span class="keyword">type</span> <a id="t:WORLD" class="def">WORLD</a> <a href="#t:WORLD" class="selflink">#</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">&nbsp;= (<a href="Tarefa6_2022li1g124.html#t:TinyWorld" title="Tarefa6_2022li1g124">TinyWorld</a>, ([[Picture]], <a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a>, Float, Int))</td><td class="doc"><p><code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code> &#233; o type que a main usar&#225; para executar o gloss, tendo este o papel de: World! Este receber&#225; um <code><a href="Tarefa6_2022li1g124.html#t:TinyWorld" title="Tarefa6_2022li1g124">TinyWorld</a></code>, uma lista de listas de Pictures, usadas para desenhar o <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> na sua globalidade, Um <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> que ser&#225; alterado ao longo do tempo e que ser&#225; limitado pelo <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> escolhido e, poss&#237;velmente, pela <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> selecionada, um Float usado pela <code><a href="Tarefa6_2022li1g124.html#v:tokioTomare" title="Tarefa6_2022li1g124">tokioTomare</a></code> (reageTempo) para alterar o <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> e a pontua&#231;&#227;o do Usu&#225;rio apropriadamente, e um <code>Int</code>   aleatoriamente gerado pelo programa, sempre que o &#7765;rograma &#233; iniciado</p></td></tr></table></div></div><div class="top"><p class="src"><span class="keyword">type</span> <a id="t:TinyWorld" class="def">TinyWorld</a> <a href="#t:TinyWorld" class="selflink">#</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">&nbsp;= (<a href="Tarefa6_2022li1g124.html#t:Interface" title="Tarefa6_2022li1g124">Interface</a>, [Int], (Int, Int))</td><td class="doc"><p><code><a href="Tarefa6_2022li1g124.html#t:TinyWorld" title="Tarefa6_2022li1g124">TinyWorld</a></code>, tal como quase tudo neste projeto, foi baseado num dos exemplos apresentados durante o decorrer das aulas, recebendo uma <code><a href="Tarefa6_2022li1g124.html#t:Interface" title="Tarefa6_2022li1g124">Interface</a></code> (devolvendo uma certa <code>Picture</code>  relacionada a cada <code><a href="Tarefa6_2022li1g124.html#t:Interface" title="Tarefa6_2022li1g124">Interface</a></code>),uma lista de Ints que est&#227;o associadas a certas teclas pressionadas pelo Usu&#225;rio, e um Tuplo de Ints que ser&#225; usado mais tarde para o <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> <code><a href="Tarefa6_2022li1g124.html#v:Classic" title="Tarefa6_2022li1g124">Classic</a></code> (Refletindo em tudo o que foi realizado at&#233; agora, era desnecess&#225;rio associar um Tuplo de Ints para algo desta natureza)</p></td></tr></table></div></div><div class="top"><p class="src"><span class="keyword">data</span> <a id="t:Interface" class="def">Interface</a> <a href="#t:Interface" class="selflink">#</a></p><div class="doc"><p><code><a href="Tarefa6_2022li1g124.html#t:Interface" title="Tarefa6_2022li1g124">Interface</a></code> determina o que ser&#225; devolvido ao Usu&#225;rio, um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> jog&#225;vel com um certo <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> ou um <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code> com v&#225;rios <code><a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a></code>s (pode ser visto como um <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code> global).</p></div><div class="subs constructors"><p class="caption">Constructors</p><table><tr><td class="src"><a id="v:Menu" class="def">Menu</a> <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a> <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a> Int [Char]</td><td class="doc"><p>o <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code> ir&#225; perceber se o <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> <code><a href="Tarefa6_2022li1g124.html#v:TRUE_CLASSIC" title="Tarefa6_2022li1g124">TRUE_CLASSIC</a></code> estar&#225; dispon&#237;vel ou n&#227;o, olhando para a lista de Chars (caso nela esteja presente <strong>|Frogger|</strong> no in&#237;cio da lista), que tamb&#233;m ser&#225; usada para determinar a Seed do <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code>, e um <code>Int</code>  para determinar que <a href="Bot&#227;o.html">Bot&#227;o</a> o Usu&#225;rio pode selecionar</p></td></tr><tr><td class="src"><a id="v:Gamer" class="def">Gamer</a> <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a> <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a> Int Bool</td><td class="doc"><p>o <code><a href="Tarefa6_2022li1g124.html#v:Gamer" title="Tarefa6_2022li1g124">Gamer</a></code> recebe diferentes <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code>s pois dependendo deste, pode devolver diferentes interpreta&#231;&#245;es do mesmo mapa, um <code>Int</code>  que est&#225; associado a uma seed gerada pelo programa, ou introduzida pelo Usu&#225;rio, um Bool para detetar se o <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> acabou (usando a <code><a href="Tarefa4_2022li1g124.html#v:jogoTerminou" title="Tarefa4_2022li1g124">jogoTerminou</a></code>) e, tal como o <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code>, percebe se o <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> <code><a href="Tarefa6_2022li1g124.html#v:TRUE_CLASSIC" title="Tarefa6_2022li1g124">TRUE_CLASSIC</a></code> est&#225; dispon&#237;vel, mas s&#243; para ter alguma consist&#234;ncia quando &quot;sair&quot; desta <code><a href="Tarefa6_2022li1g124.html#t:Interface" title="Tarefa6_2022li1g124">Interface</a></code> (ao pressionar <code>q</code>, o programa ir&#225; levar o Usu&#225;rio da <code><a href="Tarefa6_2022li1g124.html#t:Interface" title="Tarefa6_2022li1g124">Interface</a></code> <code><a href="Tarefa6_2022li1g124.html#v:Gamer" title="Tarefa6_2022li1g124">Gamer</a></code> ao <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code>, e se este n&#227;o perceber se o <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> <code><a href="Tarefa6_2022li1g124.html#v:TRUE_CLASSIC" title="Tarefa6_2022li1g124">TRUE_CLASSIC</a></code> est&#225; dispon&#237;vel ou n&#227;o, o Usu&#225;rio ter&#225; de escrever <strong>|Frogger|</strong> sempre que decidir voltar ao <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code>) </p></td></tr></table></div></div><div class="top"><p class="src"><span class="keyword">data</span> <a id="t:Unlocked" class="def">Unlocked</a> <a href="#t:Unlocked" class="selflink">#</a></p><div class="doc"><p>Uma maneira mais intuitiva para o programa perceber se &#233; poss&#237;vel selecionar o <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> <code><a href="Tarefa6_2022li1g124.html#v:TRUE_CLASSIC" title="Tarefa6_2022li1g124">TRUE_CLASSIC</a></code>(ou se o Usu&#225;rio j&#225; introduziu <strong>|Frogger|</strong> num dado <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code>)</p></div><div class="subs constructors"><p class="caption">Constructors</p><table><tr><td class="src"><a id="v:Locked" class="def">Locked</a></td><td class="doc"><p><code><a href="Tarefa6_2022li1g124.html#v:TRUE_CLASSIC" title="Tarefa6_2022li1g124">TRUE_CLASSIC</a></code> indispon&#237;vel</p></td></tr><tr><td class="src"><a id="v:Frogger" class="def">Frogger</a></td><td class="doc"><p><code><a href="Tarefa6_2022li1g124.html#v:TRUE_CLASSIC" title="Tarefa6_2022li1g124">TRUE_CLASSIC</a></code> dispon&#237;vel</p></td></tr></table></div><div class="subs instances"><h4 class="instances details-toggle-control details-toggle" data-details-id="i:Unlocked">Instances</h4><details id="i:Unlocked" open="open"><summary class="hide-when-js-enabled">Instances details</summary><table><tr><td class="src clearfix"><span class="inst-left"><span class="instance details-toggle-control details-toggle" data-details-id="i:id:Unlocked:Eq:1"></span> Eq <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a></span> <a href="#t:Unlocked" class="selflink">#</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><details id="i:id:Unlocked:Eq:1"><summary class="hide-when-js-enabled">Instance details</summary><p>Defined in <a href="Tarefa6_2022li1g124.html">Tarefa6_2022li1g124</a></p> <div class="subs methods"><p class="caption">Methods</p><p class="src"><a href="#v:-61--61-">(==)</a> :: <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a> -&gt; <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a> -&gt; Bool</p><p class="src"><a href="#v:-47--61-">(/=)</a> :: <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a> -&gt; <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a> -&gt; Bool</p></div></details></td></tr><tr><td class="src clearfix"><span class="inst-left"><span class="instance details-toggle-control details-toggle" data-details-id="i:id:Unlocked:Read:2"></span> Read <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a></span> <a href="#t:Unlocked" class="selflink">#</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><details id="i:id:Unlocked:Read:2"><summary class="hide-when-js-enabled">Instance details</summary><p>Defined in <a href="Tarefa6_2022li1g124.html">Tarefa6_2022li1g124</a></p> <div class="subs methods"><p class="caption">Methods</p><p class="src"><a href="#v:readsPrec">readsPrec</a> :: Int -&gt; ReadS <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a></p><p class="src"><a href="#v:readList">readList</a> :: ReadS [<a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a>]</p><p class="src"><a href="#v:readPrec">readPrec</a> :: ReadPrec <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a></p><p class="src"><a href="#v:readListPrec">readListPrec</a> :: ReadPrec [<a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a>]</p></div></details></td></tr><tr><td class="src clearfix"><span class="inst-left"><span class="instance details-toggle-control details-toggle" data-details-id="i:id:Unlocked:Show:3"></span> Show <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a></span> <a href="#t:Unlocked" class="selflink">#</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><details id="i:id:Unlocked:Show:3"><summary class="hide-when-js-enabled">Instance details</summary><p>Defined in <a href="Tarefa6_2022li1g124.html">Tarefa6_2022li1g124</a></p> <div class="subs methods"><p class="caption">Methods</p><p class="src"><a href="#v:showsPrec">showsPrec</a> :: Int -&gt; <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a> -&gt; ShowS</p><p class="src"><a href="#v:show">show</a> :: <a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a> -&gt; String</p><p class="src"><a href="#v:showList">showList</a> :: [<a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a>] -&gt; ShowS</p></div></details></td></tr></table></details></div></div><div class="top"><p class="src"><span class="keyword">data</span> <a id="t:SmolMenu" class="def">SmolMenu</a> <a href="#t:SmolMenu" class="selflink">#</a></p><div class="doc"><p><code><a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a></code> pode ser visto como uma esp&#233;cie de &quot;sub-diretorias&quot; que o <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code> toma, permitindo ter Projeto mais organizado.</p></div><div class="subs constructors"><p class="caption">Constructors</p><table><tr><td class="src"><a id="v:Queueing" class="def">Queueing</a> (Int, Int)</td><td class="doc"><p>aqui, ap&#243;s ser selecionado o <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> <code><a href="Tarefa6_2022li1g124.html#v:Classic" title="Tarefa6_2022li1g124">Classic</a></code>, poderemos selecionar o tamanho do <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> que ser&#225; devolvido, onde, com as setas direcionais, iremos determinar as (&quot;Dezenas,Unidades&quot;) da <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code></p></td></tr><tr><td class="src"><a id="v:Starting" class="def">Starting</a></td><td class="doc"><p>o <code><a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a></code> com que o Projeto Gr&#225;fico come&#231;a, e aquele que o jogador encontrar&#225; sempre que decidir experimentar qualquer <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code>, ver as <code><a href="Tarefa6_2022li1g124.html#v:Instrucoes" title="Tarefa6_2022li1g124">Instrucoes</a></code>, usar uma Seed diferente ou simplesmente, sair apropriadamente do Projeto </p></td></tr><tr><td class="src"><a id="v:Instrucoes" class="def">Instrucoes</a></td><td class="doc"><p>para quem n&#227;o tenha muita experi&#234;ncia, decidi criar esta &quot;sub-diretoria&quot; para apresentar todos os comandos poss&#237;veis, onde deixo uma indica&#231;&#227;o da possibilidade de desbloquear o <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> <code><a href="Tarefa6_2022li1g124.html#v:TRUE_CLASSIC" title="Tarefa6_2022li1g124">TRUE_CLASSIC</a></code> atrav&#233;s de letras ou usando o c&#243;digo ASCII para traduzir <strong>FROGGER</strong></p></td></tr></table></div><div class="subs instances"><h4 class="instances details-toggle-control details-toggle" data-details-id="i:SmolMenu">Instances</h4><details id="i:SmolMenu" open="open"><summary class="hide-when-js-enabled">Instances details</summary><table><tr><td class="src clearfix"><span class="inst-left"><span class="instance details-toggle-control details-toggle" data-details-id="i:id:SmolMenu:Eq:1"></span> Eq <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a></span> <a href="#t:SmolMenu" class="selflink">#</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><details id="i:id:SmolMenu:Eq:1"><summary class="hide-when-js-enabled">Instance details</summary><p>Defined in <a href="Tarefa6_2022li1g124.html">Tarefa6_2022li1g124</a></p> <div class="subs methods"><p class="caption">Methods</p><p class="src"><a href="#v:-61--61-">(==)</a> :: <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a> -&gt; <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a> -&gt; Bool</p><p class="src"><a href="#v:-47--61-">(/=)</a> :: <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a> -&gt; <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a> -&gt; Bool</p></div></details></td></tr><tr><td class="src clearfix"><span class="inst-left"><span class="instance details-toggle-control details-toggle" data-details-id="i:id:SmolMenu:Read:2"></span> Read <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a></span> <a href="#t:SmolMenu" class="selflink">#</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><details id="i:id:SmolMenu:Read:2"><summary class="hide-when-js-enabled">Instance details</summary><p>Defined in <a href="Tarefa6_2022li1g124.html">Tarefa6_2022li1g124</a></p> <div class="subs methods"><p class="caption">Methods</p><p class="src"><a href="#v:readsPrec">readsPrec</a> :: Int -&gt; ReadS <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a></p><p class="src"><a href="#v:readList">readList</a> :: ReadS [<a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a>]</p><p class="src"><a href="#v:readPrec">readPrec</a> :: ReadPrec <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a></p><p class="src"><a href="#v:readListPrec">readListPrec</a> :: ReadPrec [<a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a>]</p></div></details></td></tr><tr><td class="src clearfix"><span class="inst-left"><span class="instance details-toggle-control details-toggle" data-details-id="i:id:SmolMenu:Show:3"></span> Show <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a></span> <a href="#t:SmolMenu" class="selflink">#</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><details id="i:id:SmolMenu:Show:3"><summary class="hide-when-js-enabled">Instance details</summary><p>Defined in <a href="Tarefa6_2022li1g124.html">Tarefa6_2022li1g124</a></p> <div class="subs methods"><p class="caption">Methods</p><p class="src"><a href="#v:showsPrec">showsPrec</a> :: Int -&gt; <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a> -&gt; ShowS</p><p class="src"><a href="#v:show">show</a> :: <a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a> -&gt; String</p><p class="src"><a href="#v:showList">showList</a> :: [<a href="Tarefa6_2022li1g124.html#t:SmolMenu" title="Tarefa6_2022li1g124">SmolMenu</a>] -&gt; ShowS</p></div></details></td></tr></table></details></div></div><div class="top"><p class="src"><span class="keyword">data</span> <a id="t:Mode" class="def">Mode</a> <a href="#t:Mode" class="selflink">#</a></p><div class="doc"><p>Diferentes <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code>s que ser&#227;o tomadas pelo <code><a href="Tarefa6_2022li1g124.html#v:Gamer" title="Tarefa6_2022li1g124">Gamer</a></code>.</p><p>Estes ser&#227;o usados para interpretar de maneiras diferentes um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> igual, (com uma <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> vari&#225;vel, dependendo do <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code>).</p></div><div class="subs constructors"><p class="caption">Constructors</p><table><tr><td class="src"><a id="v:Classic" class="def">Classic</a> Int</td><td class="doc"><p>o <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> &quot;base&quot; que, quando selecionado, ser&#225; usado para devolver um <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> onde o <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> tem uma <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> vari&#225;vel, decidida pelo Usu&#225;rio. Para al&#233;m de ser o &#250;nico que permite o &quot;deslize&quot; de <code>Obstaculos</code></p></td></tr><tr><td class="src"><a id="v:Doom" class="def">Doom</a></td><td class="doc"><p>inspirado em jogos dos anos 90 (Quake, Doom, etc.), este <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> permite devolver um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> onde &#233; poss&#237;vel jogar numa perspectiva em terceira pessoa, num &quot;mundo 3D semi-realista&quot;, com uma <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> fixa 7</p></td></tr><tr><td class="src"><a id="v:TRUE_CLASSIC" class="def">TRUE_CLASSIC</a></td><td class="doc"><p>o <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> que &#233; acess&#237;vel ap&#243;s se escrever a palavra <strong>|Frogger|</strong> em qualquer <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code>. Permite devolver uma interpreta&#231;&#227;o do <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> verdadeiramente cl&#225;ssica, sendo o melhor <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> do Projeto, com uma <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> fixa de 9</p></td></tr><tr><td class="src"><a id="v:Undefined" class="def">Undefined</a></td><td class="doc"><p>um <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> com que o <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> come&#231;a, cujo &#250;nico prop&#243;sito &#233; ser substitu&#237;do por um que n&#227;o devolva um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> &quot;neutro&quot; (um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> com 1 de <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code>, num <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> <code><a href="LI12223.html#v:Relva" title="LI12223">Relva</a></code>, onde o &#250;nico <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code> presente &#233; um <code><a href="LI12223.html#v:Nenhum" title="LI12223">Nenhum</a></code>)</p></td></tr></table></div><div class="subs instances"><h4 class="instances details-toggle-control details-toggle" data-details-id="i:Mode">Instances</h4><details id="i:Mode" open="open"><summary class="hide-when-js-enabled">Instances details</summary><table><tr><td class="src clearfix"><span class="inst-left"><span class="instance details-toggle-control details-toggle" data-details-id="i:id:Mode:Eq:1"></span> Eq <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></span> <a href="#t:Mode" class="selflink">#</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><details id="i:id:Mode:Eq:1"><summary class="hide-when-js-enabled">Instance details</summary><p>Defined in <a href="Tarefa6_2022li1g124.html">Tarefa6_2022li1g124</a></p> <div class="subs methods"><p class="caption">Methods</p><p class="src"><a href="#v:-61--61-">(==)</a> :: <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a> -&gt; <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a> -&gt; Bool</p><p class="src"><a href="#v:-47--61-">(/=)</a> :: <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a> -&gt; <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a> -&gt; Bool</p></div></details></td></tr><tr><td class="src clearfix"><span class="inst-left"><span class="instance details-toggle-control details-toggle" data-details-id="i:id:Mode:Read:2"></span> Read <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></span> <a href="#t:Mode" class="selflink">#</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><details id="i:id:Mode:Read:2"><summary class="hide-when-js-enabled">Instance details</summary><p>Defined in <a href="Tarefa6_2022li1g124.html">Tarefa6_2022li1g124</a></p> <div class="subs methods"><p class="caption">Methods</p><p class="src"><a href="#v:readsPrec">readsPrec</a> :: Int -&gt; ReadS <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></p><p class="src"><a href="#v:readList">readList</a> :: ReadS [<a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a>]</p><p class="src"><a href="#v:readPrec">readPrec</a> :: ReadPrec <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></p><p class="src"><a href="#v:readListPrec">readListPrec</a> :: ReadPrec [<a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a>]</p></div></details></td></tr><tr><td class="src clearfix"><span class="inst-left"><span class="instance details-toggle-control details-toggle" data-details-id="i:id:Mode:Show:3"></span> Show <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></span> <a href="#t:Mode" class="selflink">#</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><details id="i:id:Mode:Show:3"><summary class="hide-when-js-enabled">Instance details</summary><p>Defined in <a href="Tarefa6_2022li1g124.html">Tarefa6_2022li1g124</a></p> <div class="subs methods"><p class="caption">Methods</p><p class="src"><a href="#v:showsPrec">showsPrec</a> :: Int -&gt; <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a> -&gt; ShowS</p><p class="src"><a href="#v:show">show</a> :: <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a> -&gt; String</p><p class="src"><a href="#v:showList">showList</a> :: [<a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a>] -&gt; ShowS</p></div></details></td></tr></table></details></div></div><div class="top"><p class="src"><a id="v:tinyWorldInicial" class="def">tinyWorldInicial</a> :: <a href="Tarefa6_2022li1g124.html#t:TinyWorld" title="Tarefa6_2022li1g124">TinyWorld</a> <a href="#v:tinyWorldInicial" class="selflink">#</a></p><div class="doc"><h2>tinyWorldInicial</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa6_2022li1g124.html#v:tinyWorldInicial" title="Tarefa6_2022li1g124">tinyWorldInicial</a></code></strong> &#233; definida com um <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code> inicial (<code><a href="Tarefa6_2022li1g124.html#v:Starting" title="Tarefa6_2022li1g124">Starting</a></code>), <code><a href="Tarefa6_2022li1g124.html#v:Locked" title="Tarefa6_2022li1g124">Locked</a></code>, 
+com a primeira op&#231;&#227;o selecionada (0), uma lista de Chars vazia (&quot;&quot;), nenhum <a href="Bot&#227;o.html">Bot&#227;o</a> 
+selecionado ([]), e com um Tuplo de Ints nulos ((0,0)) pois n&#227;o ser&#227;o necess&#225;rios inicialmente</p><p>Podemos assim definir <strong><code><a href="Tarefa6_2022li1g124.html#v:tinyWorldInicial" title="Tarefa6_2022li1g124">tinyWorldInicial</a></code></strong> da seguinte maneira:</p><h3>Defini&#231;&#227;o dada</h3><pre>
+tinyWorldInicial :: TinyWorld
+tinyWorldInicial = (Menu Locked Starting 0 &quot;&quot;,[],(0,0))
+
+</pre><pre>
+    <strong>:: <code><a href="Tarefa6_2022li1g124.html#t:TinyWorld" title="Tarefa6_2022li1g124">TinyWorld</a></code></strong> afirma um <code><a href="Tarefa6_2022li1g124.html#t:TinyWorld" title="Tarefa6_2022li1g124">TinyWorld</a></code> inicial usado posteriormente pela <strong><code><a href="Tarefa6_2022li1g124.html#v:worldInicial" title="Tarefa6_2022li1g124">worldInicial</a></code></strong>
+
+</pre></div></div><div class="top"><p class="src"><a id="v:worldInicial" class="def">worldInicial</a> :: [[Picture]] -&gt; <a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a> -&gt; Int -&gt; <a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a> <a href="#v:worldInicial" class="selflink">#</a></p><div class="doc"><h2>worldInicial</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa6_2022li1g124.html#v:worldInicial" title="Tarefa6_2022li1g124">worldInicial</a></code></strong> ir&#225; receber uma lista de listas de Pictures, 
+um <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> e um Int atribu&#237;do aleatoriamente, todos estes s&#227;o providenciados pela Main.
+Assim, definindo o <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code> inicial, que mais tarde ser&#225; alterado dependendo do 
+que o Usu&#225;rio quiser fazer com o programa.
+Para facilitar a defini&#231;&#227;o deste <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code> inicial, usei anteriormente a fun&#231;&#227;o 
+ <strong><code><a href="Tarefa6_2022li1g124.html#v:tinyWorldInicial" title="Tarefa6_2022li1g124">tinyWorldInicial</a></code></strong>, que apenas define o <code><a href="Tarefa6_2022li1g124.html#t:TinyWorld" title="Tarefa6_2022li1g124">TinyWorld</a></code> inicial.</p><h3>Defini&#231;&#227;o dada</h3><pre>
+worldInicial:: [[Picture]] -&gt; Jogo -&gt; Int -&gt; WORLD
+worldInicial glossy j r = (tinyWorldInicial, (glossy,j ,0.0,r))  
+
+</pre><pre>
+    <strong>:: [[Picture]]</strong>  uma lista de listas de Pictures dada pela Main
+    <strong>-&gt; <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code></strong>   um <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> providenciado pela Main (o resultado da fun&#231;&#227;o
+                    <code><a href="Tarefa6_2022li1g124.html#v:jogoInicial" title="Tarefa6_2022li1g124">jogoInicial</a></code> 0 <code><a href="Tarefa6_2022li1g124.html#v:Undefined" title="Tarefa6_2022li1g124">Undefined</a></code>, um <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> com uma <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> de 1,
+                    <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> <code><a href="LI12223.html#v:Relva" title="LI12223">Relva</a></code>, e como &#250;nico <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code> um <code><a href="LI12223.html#v:Nenhum" title="LI12223">Nenhum</a></code>)
+                    Este s&#243; ser&#225; utilizado at&#233; o Usu&#225;rio escolher algum outro <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code>
+    <strong>-&gt; Int</strong>  um Int aleat&#243;rio dado pela Main que, enquanto o Usu&#225;rio decidir
+                dar &quot;seeds&quot; vazias (&quot;&quot;), ir&#225; progressivamente diminuindo de 1 em 1
+
+</pre><p>Isto teve como objetivo definir um <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code> inicial, que ser&#225; usada no resto do trabalho,
+sendo que a main (playIO) vai funcionar recursivamente at&#233; o programa ser fechado</p></div></div><div class="top"><p class="src"><a id="v:worldBuilder" class="def">worldBuilder</a> :: <a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a> -&gt; Picture <a href="#v:worldBuilder" class="selflink">#</a></p><div class="doc"><h2>worldBuilder</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa6_2022li1g124.html#v:worldBuilder" title="Tarefa6_2022li1g124">worldBuilder</a></code></strong> ir&#225; receber <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code>, e dependendo da <code><a href="Tarefa6_2022li1g124.html#t:Interface" title="Tarefa6_2022li1g124">Interface</a></code>,
+ir&#225; desenhar um <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code>, <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code>, etc., diferente.
+Mais importante de real&#231;ar, seria o facto do <code><a href="Tarefa6_2022li1g124.html#v:worldBuilder" title="Tarefa6_2022li1g124">worldBuilder</a></code> ter em aten&#231;&#227;o que:
+1. o <code><a href="Tarefa6_2022li1g124.html#t:Unlocked" title="Tarefa6_2022li1g124">Unlocked</a></code>, o Int do <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code> s&#227;o relevantes no desenho de qualquer <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code>
+2. enquanto o Usu&#225;rio se encontrar nas <code><a href="Tarefa6_2022li1g124.html#v:Instrucoes" title="Tarefa6_2022li1g124">Instrucoes</a></code>, o <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code> &quot;inicial&quot; exposto
+   &#233; algo que interativo, pois aceita ainda seeds do Usu&#225;rio, e pode at&#233; 
+   deixar dispon&#237;vel o <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> <code><a href="Tarefa6_2022li1g124.html#v:TRUE_CLASSIC" title="Tarefa6_2022li1g124">TRUE_CLASSIC</a></code>
+3. dependendo do <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> escolhido, chama recursivamente fun&#231;&#245;es diferentes para
+   desenhar mapas diferentes, apesar da pontua&#231;&#227;o ser sempre desenhada da mesma
+   maneira.
+4. ao introduzir a seed <strong>|Frogger|</strong>, o <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> <code><a href="Tarefa6_2022li1g124.html#v:TRUE_CLASSIC" title="Tarefa6_2022li1g124">TRUE_CLASSIC</a></code> estar&#225; dispon&#237;vel
+   at&#233; o Usu&#225;rio fechar o programa
+5. No <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> <code><a href="Tarefa6_2022li1g124.html#v:TRUE_CLASSIC" title="Tarefa6_2022li1g124">TRUE_CLASSIC</a></code>, o <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> desenha o sapo independente dos obst&#225;culos,
+   que idealmente seria como todos os outros <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code>s deveriam fazer</p><h3>Defini&#231;&#227;o dada</h3><pre>
+worldBuilder :: WORLD -&gt; Picture
+worldBuilder ((Menu u Starting o seed,[_],_), (glossy,_,_,_))
+    |o == 0 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text &quot;Cruza Estradas!&quot;),
+                                       (Translate (90) 382.5    enter),(Translate (-835) 425    up),
+                                       (Translate (-835) 375    down),(t 500 white (&quot;Seed: &quot; ++ seed)), 
+                                       (t 350 blue &quot;Classic Mode&quot;), (t 200 white &quot;Doom Mode&quot;), 
+                                       (t (50) white <a href="Instrucoes.html">Instrucoes</a>), (t (-100) white <a href="Sair.html">Sair</a>), 
+                                       (t (-250) unlocked <a href="Frogger.html">Frogger</a>)])
+    |o == 1 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text &quot;Cruza Estradas!&quot;),
+                                       (Translate (50) 232.5    enter),(Translate (-835) 275    up),
+                                       (Translate (-835) 225    down),(t 500 white (&quot;Seed: &quot; ++ seed)), 
+                                       (t 350 white &quot;Classic Mode&quot;), (t 200 blue &quot;Doom Mode&quot;), 
+                                       (t (50) white <a href="Instrucoes.html">Instrucoes</a>), (t (-100) white <a href="Sair.html">Sair</a>), 
+                                       (t (-250) unlocked <a href="Frogger.html">Frogger</a>)])
+    |o == 2 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text &quot;Cruza Estradas!&quot;),
+                                       (Translate (-125) 82.5    enter),(Translate (-835) 125    up),
+                                       (Translate (-835) 75     down),(t 500 white (&quot;Seed: &quot; ++ seed)), 
+                                       (t 350 white &quot;Classic Mode&quot;), (t 200 white &quot;Doom Mode&quot;), 
+                                       (t (50) blue <a href="Instrucoes.html">Instrucoes</a>), (t (-100) white <a href="Sair.html">Sair</a>), 
+                                       (t (-250) unlocked <a href="Frogger.html">Frogger</a>)])
+    |o == 3 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text &quot;Cruza Estradas!&quot;),
+                                       (Translate (-485) (-72.5)    enter),(Translate (-835) (-25)  up),
+                                       (Translate (-835) (-75)  down),(t 500 white (&quot;Seed: &quot; ++ seed)), 
+                                       (t 350 white &quot;Classic Mode&quot;), (t 200 white &quot;Doom Mode&quot;), 
+                                       (t (50) white <a href="Instrucoes.html">Instrucoes</a>), (t (-100) blue <a href="Sair.html">Sair</a>), 
+                                       (t (-250) unlocked <a href="Frogger.html">Frogger</a>)])
+    |o == 4 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text &quot;Cruza Estradas!&quot;),
+                                       (Translate (-255) (-222.5)    enter),(Translate (-835) (-180) up),
+                                       (Translate (-835) (-225) down),(t 500 white (&quot;Seed: &quot; ++ seed)), 
+                                       (t 350 white &quot;Classic Mode&quot;), (t 200 white &quot;Doom Mode&quot;), 
+                                       (t (50) white <a href="Instrucoes.html">Instrucoes</a>), (t (-100) white <a href="Sair.html">Sair</a>), 
+                                       (t (-250) blue <a href="Frogger.html">Frogger</a>)])
+        where t y colour text = Translate (-800) y $ Color colour $ Text text
+              up = scale 0.5 0.5 (head (last glossy))
+              down = scale 0.5 0.5 ((last glossy) !! 1)
+              enter = scale 0.5 0.5 ((last glossy)!!5)
+              unlocked | u == Frogger = white
+                       | u == Locked = black
+
+worldBuilder (((Menu un (Queueing (d,u)) k seed),_,_), (glossy,_,_,_))
+        |k == 0 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text &quot;Cruza Estradas!&quot;),
+                                           (Translate 400 400 enter),horizontal,(Translate (238.5) 475 up),
+                                           (Translate (238.5) 325 down),
+                                           (Translate (130) (350) $ Color white $ Text (show d)), 
+                                           (Translate (200) (350) $ Color blue $ Text (show u)),
+                                           (t 500 white (&quot;Seed: &quot; ++ seed)), (t 350 blue &quot;Classic Mode&quot;), 
+                                           (t 200 white &quot;Doom Mode&quot;), (t (50) white <a href="Instrucoes.html">Instrucoes</a>), 
+                                           (t (-100) white <a href="Sair.html">Sair</a>), (t (-250) unlocked <a href="Frogger.html">Frogger</a>)])
+        |k == 1 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text &quot;Cruza Estradas!&quot;),
+                                           (Translate 400 400 enter),horizontal,(Translate (168.5) 475 up),
+                                           (Translate (168.5) 325 down),
+                                           (Translate (130) (350) $ Color blue $ Text (show d)), 
+                                           (Translate (200) (350) $ Color white $ Text (show u)),
+                                           (t 500 white (&quot;Seed: &quot; ++ seed)), (t 350 blue &quot;Classic Mode&quot;), 
+                                           (t 200 white &quot;Doom Mode&quot;), (t (50) white <a href="Instrucoes.html">Instrucoes</a>), 
+                                           (t (-100) white <a href="Sair.html">Sair</a>), (t (-250) unlocked <a href="Frogger.html">Frogger</a>)])
+            where t y colour text          = Translate (-800) y $ Color colour $ Text text
+                  up = scale 0.5 0.5 (head (last glossy))
+                  down = scale 0.5 0.5 ((last glossy) !! 1)
+                  enter = scale 0.5 0.5 ((last glossy)!!5)
+                  left = scale 0.5 0.5 ((last glossy)!! 2)
+                  right = scale 0.5 0.5 ((last glossy)!! 3)
+                  horizontal = Pictures [(Translate 110 400 left),(Translate 297 400 right)] 
+                  unlocked | un == Frogger = white
+                           | un == Locked  = black
+
+worldBuilder (((Menu un Instrucoes k seed),_,_), (glossy,_,_,_))
+    |k == 0 = (Pictures [(t (-750) 310 white (<a href="Instrucoes.html">Instrucoes</a>)), (Translate 100 (-400) (scale 0.8 0.8(img!!3))), 
+                    (Translate (-100) (-400) (scale 0.8 0.8(img!!2))),
+                    (scale 0.3 0.5 (t (-110) (-850) white (&quot;1/4&quot;))),
+                    (Translate 0 100 (scale 0.5 0.4 
+                    ((Pictures [(t (-600) 300 white (&quot;Seed: &quot; ++ seed)), 
+                                (t (-600) 150 white &quot;Classic Mode&quot;), (t (-600) 0 white &quot;Doom Mode&quot;), 
+                                (t (-600) (-150) blue <a href="Instrucoes.html">Instrucoes</a>), (t (-600) (-300) white <a href="Sair.html">Sair</a>), 
+                                (t (-600) (-450) unlocked <a href="Frogger.html">Frogger</a>)])))),
+                    (Translate (-600) (-175) (img!!5)),(teclas (-550) (-15)),
+                    (scale 0.3 0.5 (t (-1450) (-390) white (&quot;|&gt;Para navegar pelos menus, e necessario&quot;))), 
+                    (scale 0.3 0.5 (t (-1450) (-540) white (&quot;| utilizar-se as 'setas direcionais' e o <code>Enter</code>&quot;)))])
+    |k == 1 = (Pictures [(t (-750) 310 white (<a href="Instrucoes.html">Instrucoes</a>)), (Translate 100 (-400) (scale 0.8 0.8(img!!3))), 
+                    (Translate (-100) (-400) (scale 0.8 0.8(img!!2))),
+                    (scale 0.3 0.5 (t (-120) (-850) white (&quot;2/4&quot;))),
+                    (Translate 0 100 (scale 0.5 0.4 
+                    (Pictures [(t (330) (150) white &quot;0&quot;),(t 400 150 blue &quot;0&quot;),
+                                (t (-600) 300 white (&quot;Seed: &quot; ++ seed)), 
+                                (t (-600) 150 blue &quot;Classic Mode&quot;), (t (-600) 0 white &quot;Doom Mode&quot;),
+                                (t (-600) (-150) white <a href="Instrucoes.html">Instrucoes</a>), (t (-600) (-300) white <a href="Sair.html">Sair</a>), 
+                                (t (-600) (-450) unlocked <a href="Frogger.html">Frogger</a>)]))),
+                    (Translate (-600) (-175) (img!!5)),(teclas (-550) (-15)),
+                    (scale 0.3 0.5 (t (-1450) (-390) white (&quot;|&gt;O 'Classic Mode' permite ao Jogador escolher a largura do&quot;))), 
+                    (scale 0.3 0.5 (t (-1450) (-540) white (&quot;| mapa desde que esta seja superior a 3 e inferior a 99&quot;)))])        
+    |k == 2 = (Pictures [(t (-750) 310 white (<a href="Instrucoes.html">Instrucoes</a>)), (Translate 100 (-400) (scale 0.8 0.8(img!!3))), 
+                    (Translate (-100) (-400) (scale 0.8 0.8(img!!2))),
+                    (scale 0.3 0.5 (t (-120) (-850) white (&quot;3/4&quot;))),
+                    (scale 0.5 0.7 (t (-1565) 150 white (&quot;Seed: 7r0663r&quot;))),
+                    (scale 0.4 0.6 (t (-775) (30) white (<a href="XXXX.html">XXXX</a>))),
+                    (scale 0.4 0.6 (t (-1950) (30) white (&quot;Seed: 70827971716982&quot;))),
+                    (scale 0.3 0.5 (t (-650) (225) white &quot;|&gt;Se nao for atribuida uma <code>seed</code>&quot;)),
+                    (scale 0.3 0.5 (t (-650) (70) white &quot;| (numero qualquer usado para criar o mapa)&quot;)),
+                    (scale 0.3 0.5 (t (-650) (-85) white &quot;| ao Jogo, usando os numeros (ou o <code>Delete</code>),&quot;)),
+                    (scale 0.3 0.5 (t (-650) (-240) white &quot;| este ira gerar uma aleatoria&quot;))])
+    |k == 3 = (Pictures [(t (-750) 310 white (<a href="Instrucoes.html">Instrucoes</a>)), 
+                    (Translate 100 (-400) (scale 0.8 0.8(img!!3))), 
+                    (Translate (-100) (-400) (scale 0.8 0.8(img!!2))),
+                    (scale 0.3 0.5 (t (-122.5) (-850) white ((&quot;4/4&quot;)))),
+                    (teclas (-550) (150)),
+                    (scale 0.3 0.5 (t (-1450) 250 white ((&quot;|&gt;Cada 'seta direcional' movimenta o Jogador&quot;)))), 
+                    (Translate (-600) (-50) (img !! 4)),
+                    (scale 0.3 0.5 (t (-1450) (-75) white &quot;|&gt;O <code>Espaco</code> interrompe o Jogo&quot;)),
+                    (scale 0.3 0.5 (t (-1450) (-200) white &quot;| Qualquer tecla prossegue o Jogo&quot;)), 
+                    (Translate (-650) (-200) (img !! 6)),
+                    (scale 0.3 0.5 (t (-1450) (-435) white ((&quot;|&gt;O <code>Q</code> permite retornar ao menu anterior&quot;)))), 
+                    (Translate (-550) (-300) (img !! 7)),
+                    (scale 0.3 0.5 (t (-1450) (-645) white (&quot;|&gt;O <code>R</code> permite reiniciar o Jogo (Jogador, Mapa e Pontuacao)&quot;)))])
+        where t x y colour text = Translate x y $ Color colour $ Text text
+              img = last glossy
+              teclas x y = Pictures [(Translate (x-50) (y+50) (head img)),
+                                     (Translate (x-50) (y-50) (img!!1)),
+                                     (Translate (x+50) (y-50) (img!!3)),
+                                     (Translate (x-150) (y-50) (img!!2))]
+              unlocked | un == Frogger = white
+                       | un == Locked = black
+
+worldBuilder ((Gamer _ gamemode seed gameBool,_,(xo,yo)), (glossy,(Jogo (Jogador (x, y)) (Mapa larg terobs)),n,r))
+    | gamemode == TRUE_CLASSIC                                   
+        = pictures (((froggerTerrenos (glossy !! 5) (map fst terobs) ((-337.5),(412.5))) 
+                     ++ (froggerObstaculos (glossy !! 5) (terobs) ((-337.5),(412.5)))  
+                     ++ [Translate (-337.5+((fromIntegral x)*75)) (412.5-((fromIntegral y)*75)) ((glossy !! 5) !! 9)]) 
+                     ++ (scoreboard gameBool n))
+    | gamemode == Doom                                           
+        = pictures ((terrenosDoom ((glossy!!2),(glossy!!3),(glossy!!4),(glossy!!0)) (Mapa larg terobs) (x,y) (0,0))
+                    ++(scoreboard gameBool n))
+    | gamemode <em>= Doom &amp;&amp; gamemode </em>= TRUE_CLASSIC &amp;&amp; larg &lt; 19  
+        = (pictures ((terrenosClassic (glossy!!1) (map fst terobs) ((-45*((fromIntegral larg)-1)),
+                     (45*((fromIntegral (alturaMapa larg))-1))) larg) 
+                    ++ (obstaculosClassic (head glossy) (Mapa larg terobs) n ((-45*((fromIntegral larg)-1)),
+                        (45*((fromIntegral (alturaMapa larg))-1))) (xo,yo))
+                    ++(scoreboard gameBool n)))
+    | gamemode <em>= Doom &amp;&amp; gamemode </em>= TRUE_CLASSIC &amp;&amp; larg &gt;= 19 
+        = (pictures (scale 0.9875 0.9875  (scale (18<em> (fromIntegral larg)) (18</em> (fromIntegral larg)) 
+            (pictures 
+                ((terrenosClassic (glossy!!1) (map fst terobs) ((-45*((fromIntegral larg)-1)),
+                    (45*((fromIntegral (alturaMapa larg))-1))) larg) 
+                ++ (obstaculosClassic (head glossy) (Mapa larg terobs) n ((-45*((fromIntegral larg)-1)),
+                    (45*((fromIntegral (alturaMapa larg))-1))) (xo,yo))))):(scoreboard gameBool n)))
+
+</pre><pre>
+    <strong>:: <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code></strong>  wm <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code> qualquer que imp&#245;e o que dever&#225; ser desenhado 
+
+    <strong>-&gt; Picture</strong>   devolve uma imagem final, imposta pelo <code>World</code>
+</pre></div></div><div class="top"><p class="src"><a id="v:scoreboard" class="def">scoreboard</a> :: Bool -&gt; Float -&gt; [Picture] <a href="#v:scoreboard" class="selflink">#</a></p><div class="doc"><h2>scoreboard</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa6_2022li1g124.html#v:scoreboard" title="Tarefa6_2022li1g124">scoreboard</a></code></strong> ir&#225; receber um Bool e um Float
+tal que, quando o Bool se tornar num <a href="True.html">True</a>, a Picture desenhada
+&quot;aproxima-se do ecr&#227;&quot; e mostra uma mensagem, dependendo do Float
+recebido.
+Caso se mantenha <a href="False.html">False</a>, ir&#225; mostrar a pontua&#231;&#227;o atual do Usu&#225;rio.  </p><h3>Defini&#231;&#227;o dada</h3><pre>
+scoreboard :: Bool -&gt; Float -&gt; [Picture]
+scoreboard gameBool n | gameBool == False =    [Translate (-620) 375 (Color (colour) $ rectangleSolid 320 120)] 
+                                            ++ [Translate (-620) 375 (Color (black) $ rectangleSolid 310 110)]
+                                            ++ [Translate (-775) 324 (Color (colour) $ Text (show $(div (round (n)) 600)))]
+                      | otherwise         =    [Translate (-37.5) 200 (Color (colour) $ rectangleSolid 760 240)] 
+                                            ++ [Translate (-37.5) 200 (Color (black) $ rectangleSolid 750 230)] 
+                                            ++ [Translate (-37.5) 200 (Color (black) $ rectangleSolid 750 230)]
+                                            ++ [scale 0.6 0.7 (Translate (-675) 315 (Color (colour) $ Text gameover))]
+                                            ++ [Translate (-407.5) 95 (Color (colour) $ Text (&quot;Score &quot; 
+                                            ++ (show $(div (round (n)) 600))))]
+                        where (gameover, colour) = detectGameDifficulty n
+                              detectGameDifficulty n | n &lt; 12000                 = (&quot;TentaDeNovo! (&lt;20)&quot;,white)
+                                                     | n &gt;= 12000 &amp;&amp; n &lt; 60000   = (&quot;Boa! (&lt;100)&quot;,green)
+                                                     | n &gt;= 60000 &amp;&amp; n &lt; 120000  = (&quot;MuitoBem! (&lt;200)&quot;,yellow)
+                                                     | n &gt;= 120000 &amp;&amp; n &lt; 240000 = (&quot;MESTRE|DO|DOMINIO!&quot;,orange)
+                                                     | n &gt;= 240000               = (&quot;Estrada Atravessada&quot;,red)
+
+</pre><pre>
+    <strong>:: Bool</strong>  um Bool que determina se o <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> acabou
+    <strong>-&gt; Float</strong>  um Float que funciona para determinar a pontua&#231;&#227;o
+                  do Usu&#225;rio, do in&#237;cio ao fim do <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code>
+    <strong>-&gt; [Picture]</strong>  devolve uma lista de Pictures que mais tarde
+                      ser&#227;o processadas pela <strong><code><a href="Tarefa6_2022li1g124.html#v:worldBuilder" title="Tarefa6_2022li1g124">worldBuilder</a></code></strong> 
+
+</pre><p>Enquanto o <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> n&#227;o acabar, a cor da imagem mostrada ir&#225; mudar progressivamente, at&#233; estar Vermelha. </p></div></div><div class="top"><p class="src"><a id="v:froggerTerrenos" class="def">froggerTerrenos</a> :: [Picture] -&gt; [<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>] -&gt; (Float, Float) -&gt; [Picture] <a href="#v:froggerTerrenos" class="selflink">#</a></p><div class="doc"><h2>froggerTerrenos</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa6_2022li1g124.html#v:froggerTerrenos" title="Tarefa6_2022li1g124">froggerTerrenos</a></code></strong> ir&#225; avaliar a lista de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s dada e ir&#225; desenh&#225;-los linha a linha.
+Come&#231;a por avaliar a cabe&#231;a da lista e, dependendo da cabe&#231;a, desenha sempre a mesma imagem, de 75 em 
+75 p&#237;xeis at&#233; ter uma linha completa do mesmo desenho (desenhando assim o <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>). Quando tal 
+acontecer, desce 75 p&#237;xeis e vai para a abcissa inicial e repete o processo.</p><h3>Defini&#231;&#227;o dada</h3><pre>
+froggerTerrenos :: [Picture] -&gt; [Terreno] -&gt; (Float,Float) -&gt; [Picture]
+froggerTerrenos _ [] _                       = []
+froggerTerrenos images (h:t) (337.5,y)       = froggerTerrenos images t ((-337.5),(y-75))
+froggerTerrenos images (Relva:t) (x,y)       = (Translate x y (images !! 11)):(froggerTerrenos images (Relva:t) ((x+75),y))
+froggerTerrenos images ((Estrada k):t) (_,y) = froggerTerrenos images t ((-337.5),(y-75))
+froggerTerrenos images ((Rio k):t) (x,y)     = (Translate x y river):(froggerTerrenos images ((Rio k):t) ((x+75),y))
+    where river = color (dark blue) $ rectangleSolid 75 75 
+
+</pre><pre>
+    <strong>:: [Picture]</strong>  uma lista de pictures dada pela <strong><code><a href="Tarefa6_2022li1g124.html#v:worldBuilder" title="Tarefa6_2022li1g124">worldBuilder</a></code></strong>
+    <strong>-&gt; [<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>]</strong>  uma lista de terrenos que a fun&#231;&#227;o analisa
+                      recursivamente
+    <strong>-&gt; (Float,Float)</strong>  um tuplo de Floats que indica onde a imagem
+                          deve estar
+    <strong>-&gt; [Picture]</strong>  devolve uma lista de Pictures
+
+</pre></div></div><div class="top"><p class="src"><a id="v:froggerObstaculos" class="def">froggerObstaculos</a> :: [Picture] -&gt; [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; (Float, Float) -&gt; [Picture] <a href="#v:froggerObstaculos" class="selflink">#</a></p><div class="doc"><h2>froggerObstaculos</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa6_2022li1g124.html#v:froggerObstaculos" title="Tarefa6_2022li1g124">froggerObstaculos</a></code></strong> ir&#225; avaliar a lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s dada e ir&#225; desenh&#225;-los de
+75 em 75 p&#237;xeis. Tomando em aten&#231;&#227;o que, querendo que houvessem diferentes ve&#237;culos na <code><a href="LI12223.html#v:Estrada" title="LI12223">Estrada</a></code>,
+tinha de ter em aten&#231;&#227;o as diferentes posi&#231;&#245;es em que a vari&#225;vel <code><a href="LI12223.html#v:Carro" title="LI12223">Carro</a></code> se podia encontrar, e que,
+querendo que os troncos fossem &quot;conectados&quot;, a fun&#231;&#227;o tem a no&#231;&#227;o das diferentes posi&#231;&#245;es que este
+podia ter</p><h3>Defini&#231;&#227;o dada</h3><pre>
+froggerObstaculos :: [Picture] -&gt; [(Terreno,[Obstaculo])] -&gt; (Float,Float) -&gt; [Picture]
+froggerObstaculos _ [] _ = []
+froggerObstaculos images ((_,[]):t) (_,y) = froggerObstaculos images t ((-337.5),(y-75))
+froggerObstaculos images ((ter,(h:t)):lt) (x,y)
+    | h == Arvore                                                           = (Translate x y (images !! 10)) : (froggerObstaculos images ((ter,t):lt) ((x+75),y))
+    | length (h:t) == 9 &amp;&amp; (h: (drop 6 t)) == [Carro,Carro,Carro]           = (Translate x y (guiar(images !! (1+(signum(velTer1 ter)))))):(froggerObstaculos images ((ter,(init(init t))):lt) ((x+75),y))++[Translate (187.5) y (guiar(images !! (1-(signum(velTer1 ter)))))]++[(Translate (262.5) y (guiar(images !! 1)))]     
+    | length (h:t) == 9 &amp;&amp; ((last t):(take 2 (h:t))) == [Carro,Carro,Carro] = (Translate x y (guiar(images !! 1))):(Translate (x+75) y (guiar(images !! (1+(signum(velTer1 ter)))))):(froggerObstaculos images ((ter,(init(tail t))):lt) ((x+150),y))++[(Translate (262.5) y (guiar(images !! (1-(signum(velTer1 ter))))))]
+    | length (h:t) == 9 &amp;&amp; (h:[last t]) == [Carro,Carro]                    = (Translate x y (guiar(images !! ((div (9-(signum(velTer1 ter))) 2))))):(froggerObstaculos images ((ter,(init t)):lt) ((x+75),y))++[(Translate (262.5) y (guiar(images !! (div (9+(signum(velTer1 ter))) 2))))]
+    | take 2 (h:t) == [Tronco,Nenhum]                                       = (Translate (x) y (images !! 8): (froggerObstaculos images ((ter,(t)):lt) (x+75,y)))
+    | take 2 (h:t) == [Nenhum,Tronco]                                       = (Translate (x+75) y (images !! 6): (froggerObstaculos images ((ter,(tail t)):lt) (x+150,y)))
+    | h == Tronco                                                           = (Translate x y (images !! 7): (froggerObstaculos images ((ter,t):lt) (x+75,y)))
+    | take 3 (h:t) == [Carro,Carro,Carro]                                   = (Translate x y (guiar(images !! (1-(signum(velTer1 ter)))))):(Translate (x+75) y (guiar(images !! 1))):(Translate (x+150) y (guiar(images !! (1+(signum(velTer1 ter)))))) : (froggerObstaculos images ((ter,(tail(tail t))):lt) ((x+225),y))
+    | take 2 (h:t) == [Carro,Carro]                                         = (Translate x y (guiar(images !! (div (9+(signum(velTer1 ter))) 2)))):(Translate (x+75) y (guiar(images !! (div (9-(signum(velTer1 ter))) 2)))):(froggerObstaculos images ((ter,(tail t)):lt) ((x+150),y))
+    | h == Carro                                                            = (Translate x y (guiar(images !! 3))):(froggerObstaculos images ((ter,t):lt) ((x+75),y))
+    | otherwise                                                             = froggerObstaculos images ((ter,t):lt) ((x+75),y)
+        where guiar = rotate (90-(fromIntegral(signum (velTer1 ter))*90))
+
+</pre><pre>
+    <strong>:: [Picture]</strong>  uma lista de pictures dada pela <strong><code><a href="Tarefa6_2022li1g124.html#v:worldBuilder" title="Tarefa6_2022li1g124">worldBuilder</a></code></strong>
+    <strong>-&gt; [(<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>,[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>])]</strong>  uma lista de tuplos, (<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>,[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>]) 
+                                    que a fun&#231;&#227;o analisa recursivamente
+    <strong>-&gt; (Float,Float)</strong>  um tuplo de Floats que indica onde a imagem
+                          deve estar
+    <strong>-&gt; [Picture]</strong>  devolve uma lista de Pictures
+
+</pre></div></div><div class="top"><p class="src"><a id="v:terrenosClassic" class="def">terrenosClassic</a> :: [Picture] -&gt; [<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>] -&gt; (Float, Float) -&gt; <a href="LI12223.html#t:Largura" title="LI12223">Largura</a> -&gt; [Picture] <a href="#v:terrenosClassic" class="selflink">#</a></p><div class="doc"><h2>terrenosClassic</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa6_2022li1g124.html#v:terrenosClassic" title="Tarefa6_2022li1g124">terrenosClassic</a></code></strong> ir&#225; avaliar a lista de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s dada e ir&#225; desenh&#225;-los linha a linha.
+Come&#231;a por avaliar a cabe&#231;a da lista e, dependendo da cabe&#231;a, desenha sempre a mesma imagem, de 90 em 
+90 p&#237;xeis at&#233; ter uma linha completa do mesmo desenho (desenhando assim o <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>). Quando tal 
+acontecer, desce 90 p&#237;xeis e vai para a abcissa inicial e repete o processo.</p><h3>Defini&#231;&#227;o dada</h3><pre>
+terrenosClassic :: [Picture] -&gt; [Terreno] -&gt; (Float,Float) -&gt; Largura -&gt; [Picture]
+terrenosClassic _ [] _ _                              = [Blank]
+terrenosClassic terrenos (h:t) (x,y) larg             | x == ((-45*(-(fromIntegral larg)-1))) = terrenosClassic terrenos t ((x-(90*(fromIntegral larg))),(y-90)) larg
+terrenosClassic terrenos (Relva:t) (x,y) larg         = (Translate x y (terrenos !! 0)):(terrenosClassic terrenos (Relva:t) (x+90,y) larg) 
+terrenosClassic terrenos ((Rio vel):t) (x,y) larg     = (Translate x y (terrenos !! 1)):(terrenosClassic terrenos ((Rio vel):t) ((x+90),y) larg) 
+terrenosClassic terrenos ((Estrada vel):t) (x,y) larg = (Translate x y (terrenos !! 2)):(terrenosClassic terrenos ((Estrada vel):t) (x+90,y) larg) 
+
+</pre><pre>
+    <strong>:: [<code>Picture</code>]</strong>  uma lista de pictures dada pela <strong><code><a href="Tarefa6_2022li1g124.html#v:worldBuilder" title="Tarefa6_2022li1g124">worldBuilder</a></code></strong>
+    <strong>-&gt; [<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>]</strong>  uma lista de terrenos que a fun&#231;&#227;o analisa
+                      recursivamente
+    <strong>-&gt; (Float,Float)</strong>  um tuplo de Floats que indica onde a imagem
+                          deve estar
+    <strong>-&gt; <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code></strong>  recebe uma <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> porque permiti que neste <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code>
+                      a <code><a href="LI12223.html#t:Largura" title="LI12223">Largura</a></code> fosse vari&#225;vel, o que n&#227;o acontece com
+                      mais nenhum <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code>
+    <strong>-&gt; [Picture]</strong>  devolve uma lista de Pictures
+
+</pre></div></div><div class="top"><p class="src"><a id="v:obstaculosClassic" class="def">obstaculosClassic</a> :: [Picture] -&gt; <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Float -&gt; (Float, Float) -&gt; <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a> -&gt; [Picture] <a href="#v:obstaculosClassic" class="selflink">#</a></p><div class="doc"><h2>obstaculosClassic</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa6_2022li1g124.html#v:obstaculosClassic" title="Tarefa6_2022li1g124">obstaculosClassic</a></code></strong> ir&#225; avaliar o <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> dado e ir&#225; desenhar os <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s presentes de
+90 em 90 p&#237;xeis. Querendo que este <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> tivesse um movimento de &quot;deslize suave&quot;, foi necess&#225;rio
+implementar uma fun&#231;&#227;o &#224; parte:  <strong>deslocaObs</strong>.
+=== Defini&#231;&#227;o dada</p><pre>
+obstaculosClassic :: [Picture] -&gt; Mapa -&gt; Float -&gt; (Float,Float) -&gt; Coordenadas -&gt;  [Picture]
+obstaculosClassic obstaculos (Mapa larg []) _ (x,y) (xo,yo) 
+    = [Translate (fromIntegral xo) (fromIntegral yo) (scale (1<em>3.5) (1</em>3.5) (obstaculos !! 2))]
+obstaculosClassic obstaculos (Mapa larg ((_,[]):t)) n (x,y) (xo,yo)
+    = obstaculosClassic obstaculos (Mapa larg t) n ((x-(90*(fromIntegral larg))),(y-90)) (xo,yo)
+obstaculosClassic obstaculos (Mapa larg ((h,(l:lt)):t)) n (x,y) (xo,yo)
+    | take 2 (l:lt) == [Tronco,Nenhum]                    = (Translate (x+(deslocaObs vel (n-1))) (y+30) (scale (-1<em>2) (1</em>2) (obstaculos !! 6))):(obstaculosClassic obstaculos (Mapa larg ((h, lt):t)) n (x+90,y)) (novoX,novoY)
+    | l == Tronco                                         = (Translate (30+x+(deslocaObs vel (n-1))) (y+30) (scale (-1<em>2) (1</em>2) (obstaculos !! 1))):(obstaculosClassic obstaculos (Mapa larg ((h, lt):t)) n (x+90,y)) (novoX,novoY)
+    | l == Tronco &amp;&amp; xo == (round x) &amp;&amp; (round y) == yo   = (Translate (30+x+(deslocaObs vel (n-1))) (y+30) (scale (-1<em>2) (1</em>2) (obstaculos !! 1))):(Translate (fromIntegral xo+(deslocaObs vel (n-1))) (fromIntegral yo) (scale (1<em>3.5) (1</em>3.5) (obstaculos !! 2))):(obstaculosClassic obstaculos (Mapa larg ((h, lt):t)) n (x+90,y)) (200000+xo,0)
+    | l == Tronco &amp;&amp; (xo <em>= (round x) || (round y) </em>= yo) = (Translate (30+x+(deslocaObs vel (n-1))) (y+30) (scale (-1<em>2) (1</em>2) (obstaculos !! 1))):(obstaculosClassic obstaculos (Mapa larg ((h, lt):t)) n (x+90,y)) (novoX,novoY)
+    | l == Arvore                                         = (Translate x (y-5) (scale 0.335 0.285 (obstaculos !! 0))):(obstaculosClassic obstaculos (Mapa larg ((Relva, lt):t)) n (x+90,y)) (novoX,novoY)
+    | l == Carro                                          = (Translate (x+(deslocaObs vel (n-1))) y (scale (fromIntegral(signum vel)*(1<em>2.75)) (1</em>2.75) (obstaculos !! 3))):(obstaculosClassic obstaculos (Mapa larg ((h, lt):t)) n (x+90,y)) (novoX,novoY)
+    | otherwise                                           = (obstaculosClassic obstaculos (Mapa larg ((h, lt):t)) n (x+90,y)) (novoX,novoY)
+                where (novoX,novoY) | h == (Rio (velTer1 h)) &amp;&amp; xo == (round x) &amp;&amp; (round y) == yo = (xo+(round(deslocaObs (velTer1 h) (n))),yo)
+                                    | otherwise                                                  = (xo,yo)
+                      vel = velTer1 h
+                      deslocaObs vel n | abs vel == 3 = ((((fromIntegral vel)) * (fromIntegral(mod ((round n)) 200)))/100*5*(abs (fromIntegral vel))) + (fromIntegral(-45 * signum vel))
+                                       | abs vel == 2 = ((((fromIntegral vel)) * (fromIntegral(mod ((round n)) 400)))/100*5.5*(abs (fromIntegral vel))) + (fromIntegral(-45 * signum vel))
+                                       | abs vel == 1 = ((((fromIntegral vel)) * (fromIntegral(mod ((round n)) 600)))/100*15*(abs (fromIntegral vel))) + (fromIntegral(-45 * signum vel))
+
+</pre><pre>
+    <strong>:: [Picture]</strong>  uma lista de pictures dada pela <strong><code><a href="Tarefa6_2022li1g124.html#v:worldBuilder" title="Tarefa6_2022li1g124">worldBuilder</a></code></strong>
+    <strong>-&gt; <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong>  um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> que a fun&#231;&#227;o analisa recursivamente
+    <strong>-&gt; Float</strong>  um Float que a fun&#231;&#227;o usa para aplicar o &quot;deslize suave&quot;
+                  mencionado anteriormente
+    <strong>-&gt; (Float,Float)</strong>  um tuplo de Floats que indica onde a imagem
+                          deve estar
+    <strong>-&gt; <code><a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a></code></strong>  um tuplo usado para desenhar o <code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code> no <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code>
+    <strong>-&gt; [Picture]</strong>  devolve uma lista de Pictures
+
+</pre></div></div><div class="top"><p class="src"><a id="v:terrenosDoom" class="def">terrenosDoom</a> :: ([Picture], [Picture], [Picture], [Picture]) -&gt; <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; (Int, Int) -&gt; <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a> -&gt; [Picture] <a href="#v:terrenosDoom" class="selflink">#</a></p><div class="doc"><h2>terrenosDoom</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa6_2022li1g124.html#v:terrenosDoom" title="Tarefa6_2022li1g124">terrenosDoom</a></code></strong> ir&#225; avaliar o <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> dado e ir&#225; desenhar os <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s presentes linha a linha.
+Come&#231;a por avaliar a cabe&#231;a da lista e, dependendo da cabe&#231;a e da posi&#231;&#227;o do <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> na lista de tuplos,
+desenha a imagem do <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> e posi&#231;&#227;o equivalente. Com aux&#237;lio da <strong><code><a href="Tarefa6_2022li1g124.html#v:worldBuilder" title="Tarefa6_2022li1g124">worldBuilder</a></code></strong>, o <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> deste
+<code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> &#233; desenhado recursivamente, &quot;numa &#250;nica travessia&quot;</p><h3>Defini&#231;&#227;o dada</h3><pre>
+terrenosDoom :: ([Picture],[Picture],[Picture],[Picture]) -&gt; Mapa -&gt; (Int,Int) -&gt; Coordenadas -&gt; [Picture]
+terrenosDoom (es,ri,re,ob) (Mapa larg []) (x,y) (xo,yo) 
+    = [Blank]
+terrenosDoom (es,ri,re,ob) (Mapa larg ((ter, []):t)) (x,y) (xo,yo) 
+    = (terrenosDoom (es,ri,re,ob) (Mapa larg t) (x,y) (0,(yo+1)))
+terrenosDoom (es,ri,re,ob) (Mapa larg ((Relva,obs):t)) (x,y) (xo,yo) 
+    = (Translate 0 0 (re!!(length t))):(pictures (obstaculosDoom ob (Mapa larg ((Relva,obs):t)) (x,y) (xo,yo))):(terrenosDoom (es,ri,re,ob) (Mapa larg t) (x,y) (0,yo+1))
+terrenosDoom (es,ri,re,ob) (Mapa larg ((Rio vel,obs):t)) (x,y) (xo,yo)
+    = (Translate 0 0 (ri!!(length t))):(pictures (obstaculosDoom ob (Mapa larg ((Rio vel,obs):t)) (x,y) (xo,yo))):(terrenosDoom (es,ri,re,ob) (Mapa larg t) (x,y) (0,yo+1))
+terrenosDoom (es,ri,re,ob) (Mapa larg ((Estrada vel,obs):t)) (x,y) (xo,yo)
+    = (Translate 0 0 (es!!(length t))):(pictures (obstaculosDoom ob (Mapa larg ((Estrada vel,obs):t)) (x,y) (xo,yo))):(terrenosDoom (es,ri,re,ob) (Mapa larg t) (x,y) (0,yo+1))
+
+</pre><pre>
+    <strong>:: ([Picture],[Picture],[Picture],[Picture])</strong>  um tuplo de listas de pictures dado pela <strong><code><a href="Tarefa6_2022li1g124.html#v:worldBuilder" title="Tarefa6_2022li1g124">worldBuilder</a></code></strong>
+    <strong>-&gt; <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong>  um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> que a fun&#231;&#227;o analisa
+                      recursivamente
+    <strong>-&gt; (Int,Int)</strong>  um tuplo de Ints que ser&#225; utilizado mais tarde pela fun&#231;&#227;o <strong><code><a href="Tarefa6_2022li1g124.html#v:obstaculosDoom" title="Tarefa6_2022li1g124">obstaculosDoom</a></code></strong>
+    <strong>-&gt; <code><a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a></code></strong>  recebe <code><a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a></code> que indicam o a ordenada onde o <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code> tem de ser desenhado
+    <strong>-&gt; [Picture]</strong>  devolve uma lista de Pictures
+
+</pre></div></div><div class="top"><p class="src"><a id="v:obstaculosDoom" class="def">obstaculosDoom</a> :: [Picture] -&gt; <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; (Int, Int) -&gt; <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a> -&gt; [Picture] <a href="#v:obstaculosDoom" class="selflink">#</a></p><div class="doc"><h2>obstaculosDoom</h2><p>A fun&#231;&#227;o <strong><code><a href="Tarefa6_2022li1g124.html#v:obstaculosDoom" title="Tarefa6_2022li1g124">obstaculosDoom</a></code></strong> ir&#225; avaliar o <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> dado e, com aux&#237;lio da <strong><code><a href="Tarefa6_2022li1g124.html#v:distancias" title="Tarefa6_2022li1g124">distancias</a></code></strong> ir&#225; desenhar os 
+<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s presentes em todo o <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code>, tendo em no&#231;&#227;o a sua ordenada e abcissa, para criar um certo
+&quot;mundo 3D semi-realista&quot;.</p><h3>Defini&#231;&#227;o dada</h3><pre>
+obstaculosDoom :: [Picture] -&gt; Mapa -&gt; (Int,Int) -&gt; Coordenadas -&gt; [Picture]
+obstaculosDoom ob (Mapa larg ((ter,[]):lt)) (x,y) (xo,yo) = [Blank]
+obstaculosDoom ob (Mapa larg ((ter, (h:t)):lt)) (x,y) (xo,yo)
+    |h /= Tronco &amp;&amp; (y == yo &amp;&amp; x == xo) = (distancias (xo,yo) ob 5):(obstaculosDoom ob (Mapa larg ((ter, t):lt)) (x,y) ((fromIntegral xo+1),yo))
+    |h == Tronco &amp;&amp; (y == yo &amp;&amp; x == xo) = (distancias (xo,yo) ob 1):(distancias (xo,yo) ob 5):(obstaculosDoom ob (Mapa larg ((ter, t):lt)) (x,y) ((fromIntegral xo+1),yo))
+    |h == Tronco = (distancias (xo,yo) ob 1): (obstaculosDoom ob (Mapa larg ((ter, t):lt)) (x,y) ((fromIntegral xo+1),yo))
+    |h == Arvore = (distancias (xo,yo) ob 0): (obstaculosDoom ob (Mapa larg ((ter, t):lt)) (x,y) ((fromIntegral xo+1),yo))
+    |h == Carro &amp;&amp; (ter == (Estrada (velTer1 ter))) &amp;&amp; (velTer1 ter) &lt; 0 = (distancias (xo,yo) ob 4): (obstaculosDoom ob (Mapa larg ((ter, t):lt)) (x,y) ((fromIntegral xo+1),yo))
+    |h == Carro &amp;&amp; (ter == (Estrada (velTer1 ter))) &amp;&amp; (velTer1 ter) &gt; 0 = (distancias (xo,yo) ob 3): (obstaculosDoom ob (Mapa larg ((ter, t):lt)) (x,y) ((fromIntegral xo+1),yo))
+    |otherwise = obstaculosDoom ob (Mapa larg ((ter, t):lt)) (x,y) ((fromIntegral xo+1),yo)
+
+</pre><pre>
+    <strong>:: [Picture]</strong>  uma lista de pictures dado pela <strong><code><a href="Tarefa6_2022li1g124.html#v:terrenosDoom" title="Tarefa6_2022li1g124">terrenosDoom</a></code></strong>
+    <strong>-&gt; <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong>  um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> que a fun&#231;&#227;o analisa
+                      recursivamente
+    <strong>-&gt; (Int,Int)</strong>  um tuplo de Ints que ser&#225; utilizado para indicar a abcissa e ordenada do <code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code>
+    <strong>-&gt; <code><a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a></code></strong>  recebe <code><a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a></code> que, durante o decorrer da fun&#231;&#227;o, ir&#225; indicar onde
+                          cada <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code> deve ser desenhado
+    <strong>-&gt; [Picture]</strong>  devolve uma lista de Pictures
+
+</pre></div></div><div class="top"><p class="src"><a id="v:distancias" class="def">distancias</a> :: <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a> -&gt; [Picture] -&gt; Int -&gt; Picture <a href="#v:distancias" class="selflink">#</a></p><div class="doc"><h2>distancias</h2><p>Dependendo de cada ordenada, esta fun&#231;&#227;o ir&#225; determina o tamanho de cada <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code> ou do
+<code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code>, tamb&#233;m ditando que <code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code> ou <code>Obst&#225;culo</code> ir&#225; desenhar</p><h3>Defini&#231;&#227;o dada</h3><pre>
+distancias :: Coordenadas -&gt; [Picture] -&gt; Int -&gt; Picture
+distancias (xo,yo) ob z
+    |yo == 0 = (scale 0.3   0.3  (Translate (350*(fromIntegral (xo - 3))) (1520) (ob!!z)))
+    |yo == 1 = (scale 0.35  0.35 (Translate (335*(fromIntegral (xo - 3))) (1215) (ob!!z)))
+    |yo == 2 = (scale 0.4   0.4  (Translate (325*(fromIntegral (xo - 3))) (960)  (ob!!z)))
+    |yo == 3 = (scale 0.45  0.45 (Translate (315*(fromIntegral (xo - 3))) (740)  (ob!!z)))
+    |yo == 4 = (scale 0.5   0.5  (Translate (315*(fromIntegral (xo - 3))) (540)  (ob!!z)))
+    |yo == 5 = (scale 0.6   0.6  (Translate (300*(fromIntegral (xo - 3))) (315)  (ob!!z)))
+    |yo == 6 = (scale 0.8   0.8  (Translate (265*(fromIntegral (xo - 3))) (120)  (ob!!z)))
+    |yo == 7 = (scale 1     1    (Translate (245*(fromIntegral (xo - 3))) (-30)  (ob!!z)))
+    |yo == 8 = (scale 1.25  1.25 (Translate (240*(fromIntegral (xo - 3))) (-175) (ob!!z)))
+
+</pre><pre>
+    <strong>:: <code><a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a></code></strong>  usadas para perceber em que ordenada se est&#225; a trabalhar e para
+                          desenhar na dada abcissa e ordenada
+    <strong>-&gt; [Picture]</strong>  uma lista de pictures dado pela <strong><code><a href="Tarefa6_2022li1g124.html#v:obstaculosDoom" title="Tarefa6_2022li1g124">obstaculosDoom</a></code></strong>
+    <strong>-&gt; Int</strong>  um Int usado para determinar que elemento da lista de Pictures ser&#225; desenhado
+    <strong>-&gt; Picture</strong>  devolve uma Picture
+
+</pre></div></div><div class="top"><p class="src"><a id="v:worldReaction" class="def">worldReaction</a> :: Event -&gt; <a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a> -&gt; <a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a> <a href="#v:worldReaction" class="selflink">#</a></p><div class="doc"><h2>worldReaction</h2><p>Esta fun&#231;&#227;o vai, maioritariamente, responder ao pressionar de teclas esperadas, alterando a
+lista de Ints mencionada inicialmente do <code><a href="Tarefa6_2022li1g124.html#v:Menu" title="Tarefa6_2022li1g124">Menu</a></code>, nos casos em que n&#227;o afeta esta lista,
+ir&#225; responder imediatamente.
+Esta est&#225; incrivelmente associada &#224; <strong><code><a href="Tarefa6_2022li1g124.html#v:tokioTomare" title="Tarefa6_2022li1g124">tokioTomare</a></code></strong>, fazendo com que tenha um papel
+igualmente importante que <strong><code><a href="Tarefa6_2022li1g124.html#v:worldReaction" title="Tarefa6_2022li1g124">worldReaction</a></code></strong> </p><h3>Defini&#231;&#227;o dada</h3><pre>
+worldReaction :: Event -&gt; WORLD -&gt; WORLD
+worldReaction (EventKey key Down _ _) ((Menu u Starting o seed,[0],(xo,yo)), (obs,j,f,r)) 
+    | key == SpecialKey KeyUp                                                                   = ((Menu u Starting o seed,[1],(xo,yo)), (obs,j,f,r))
+    | key == SpecialKey KeyDown                                                                 = ((Menu u Starting o seed,[2],(xo,yo)), (obs,j,f,r))
+    | key == SpecialKey KeyEnter &amp;&amp; o == 0                                                      = (((Menu u (Queueing (0,0)) 0) seed,[0],(xo,yo)), (obs,j,f,r))
+    | key == SpecialKey KeyEnter &amp;&amp; o == 1 &amp;&amp; seed == []                                        = ((Gamer u Doom (superRandom) (False),[0],(xo,yo)), (obs,(jogoInicial (superRandom) Doom),0,(r-1)))    
+    | key == SpecialKey KeyEnter &amp;&amp; o == 1 &amp;&amp; not (elem False (map isDigit seed)) &amp;&amp; seed /= [] = ((Gamer u Doom (read seed) (False),[0],(xo,yo)), (obs,(jogoInicial (read seed) Doom),0,r))
+    | key == SpecialKey KeyEnter &amp;&amp; o == 2                                                      = ((Menu u Instrucoes 0 seed,[0],(xo,yo)), (obs,j,f,r))
+    | key == Char <code>q</code> || (key == SpecialKey KeyEnter &amp;&amp; o == 3)                                 = error <a href="Fim.html">Fim</a>
+    | key == SpecialKey KeyEnter &amp;&amp; o == 4 &amp;&amp; seed == []                                        = ((Gamer u TRUE_CLASSIC (superRandom) (False),[0],(xo,yo)), (obs,(jogoInicial (superRandom) TRUE_CLASSIC),0,(r-1)))    
+    | key == SpecialKey KeyEnter &amp;&amp; o == 4 &amp;&amp; not (elem False (map isDigit seed)) &amp;&amp; seed /= [] = ((Gamer u TRUE_CLASSIC (read seed) (False),[0],(xo,yo)), (obs,(jogoInicial (read seed) TRUE_CLASSIC),0,(r)))    
+                where superRandom = mod (head (randoms (mkStdGen r))) 10000000000
+
+worldReaction (EventKey key Down _ _) (((Menu un (Queueing (d,u)) k seed),[n],(xo,yo)), (obs,j,f,r)) 
+    | key == SpecialKey KeyLeft                                                                      = (((Menu un (Queueing (d,u)) k seed),[1],(xo,yo)), (obs,j,f,r)) 
+    | key == SpecialKey KeyRight                                                                     = (((Menu un (Queueing (d,u)) k seed),[2],(xo,yo)), (obs,j,f,r))
+    | key == SpecialKey KeyUp &amp;&amp; k == 0                                                              = (((Menu un (Queueing (d,(mod (u+1) 10))) k seed),[n],(xo,yo)), (obs,j,f,r)) 
+    | key == SpecialKey KeyDown &amp;&amp; k == 0                                                            = (((Menu un (Queueing (d,(mod (u-1) 10))) k seed),[n],(xo,yo)), (obs,j,f,r)) 
+    | key == SpecialKey KeyUp &amp;&amp; k == 1                                                              = (((Menu un (Queueing ((mod (d+1) 10),u)) k seed),[n],(xo,yo)), (obs,j,f,r)) 
+    | key == SpecialKey KeyDown &amp;&amp; k == 1                                                            = (((Menu un (Queueing ((mod (d-1) 10),u)) k seed),[n],(xo,yo)), (obs,j,f,r))
+    | key == Char <code>q</code>                                                                                = ((Menu un Starting 0 seed,[0],(0,0)), (obs,j,0,r))
+    | key == SpecialKey KeyEnter &amp;&amp; largura &gt; 2 &amp;&amp; seed == []                                        = ((Gamer un (Classic largura) (superRandom) (False),[0],(xo,yo)), (obs,(jogoInicial (superRandom) (Classic largura)),0,(r-1))) 
+    | key == SpecialKey KeyEnter &amp;&amp; largura &gt; 2 &amp;&amp; not (elem False (map isDigit seed)) &amp;&amp; seed /= [] = ((Gamer un (Classic largura) (read seed) (False),[0],(xo,yo)), (obs,(jogoInicial (read seed) (Classic largura)),0,r)) 
+        where largura = u + d*10  
+              superRandom = mod (head (randoms (mkStdGen r))) 10000000000
+
+worldReaction (EventKey key Down _ _) ((Menu u Instrucoes k seed,[n],(xo,yo)), (obs,j,f,r))
+    |key == Char <code>q</code>                                           = ((Menu u Starting 2 seed,[0],(xo,yo)), (obs,j,f,r))
+    |key == SpecialKey KeyRight                                = ((Menu u Instrucoes k seed,[1],(xo,yo)), (obs,j,f,r))
+    |key == SpecialKey KeyLeft                                 = ((Menu u Instrucoes k seed,[2],(xo,yo)), (obs,j,f,r))
+worldReaction (EventKey (Char n) Down _ _) ((Menu u m k seed,[0],(xo,yo)), (obs,j,f,r))               
+    | length seed &lt; 10 &amp;&amp; elem n ['0'..'9'] || (u == Locked &amp;&amp; ((length seed &lt; 7 &amp;&amp; (toLower n) == (&quot;frogger&quot; !! (length seed))))) 
+                     = ((Menu u m k (seed++[n]),[0],(xo,yo)), (obs,j,f,r)) 
+worldReaction (EventKey (SpecialKey KeyDelete) Down _ _) ((Menu u m k seed,[0],(xo,yo)), (obs,j,f,r)) 
+    | seed /= []     = ((Menu u m k (init seed),[0],(xo,yo)), (obs,j,f,r)) 
+
+worldReaction (EventKey key Down _ _) ((Gamer u (Classic l) wandom (_),[n],(xo,yo)), (obs,j,f,r)) 
+    |key == Char <code>q</code> = (((Menu u (Queueing ((div l 10),(mod l 10))) 0 (show wandom)),[0],(0,0)), (obs,j,0,r))
+
+worldReaction (EventKey key Down _ _) ((Gamer u mode wandom gamend,[n],(xo,yo)), (obs,j,f,r)) 
+    | gamend == False &amp;&amp; key == SpecialKey KeyUp    = ((Gamer u mode wandom gamend,[1],(xo,yo)), (obs,j,f,r))
+    | gamend == False &amp;&amp; key == SpecialKey KeyDown  = ((Gamer u mode wandom gamend,[2],(xo,yo)), (obs,j,f,r))
+    | gamend == False &amp;&amp; key == SpecialKey KeyLeft  = ((Gamer u mode wandom gamend,[3],(xo,yo)), (obs,j,f,r))
+    | gamend == False &amp;&amp; key == SpecialKey KeyRight = ((Gamer u mode wandom gamend,[4],(xo,yo)), (obs,j,f,r))
+    | gamend == False &amp;&amp; key == SpecialKey KeySpace = ((Gamer u mode wandom gamend,[(abs n)-1],(xo,yo)), (obs,j,f,r))
+    | key == Char <code>r</code>                               = ((Gamer u mode wandom (False),[0],(xo,yo)), (obs,(jogoInicial wandom mode),0,r))
+    | key == Char <code>q</code> &amp;&amp; mode == (Doom)             = (((Menu u Starting 1 (show wandom)),[0],(0,0)), (obs,j,0,r))
+    | key == Char <code>q</code> &amp;&amp; mode == (TRUE_CLASSIC)     = (((Menu u Starting 4 (show wandom)),[0],(0,0)), (obs,j,0,r))
+worldReaction _ ((s,[-1],(xo,yo)), e)               = ((s,[-1],(xo,yo)), e)
+worldReaction _ ((s,_,(xo,yo)), e)                  = ((s,[0],(xo,yo)), e)
+
+</pre><pre>
+    <strong>:: Event</strong>  recebe um Event
+    <strong>-&gt; <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code></strong>  recebe um <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code>
+    <strong>-&gt; <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code></strong> devolve um <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code>
+
+</pre></div></div><div class="top"><p class="src"><a id="v:tokioTomare" class="def">tokioTomare</a> :: Float -&gt; <a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a> -&gt; <a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a> <a href="#v:tokioTomare" class="selflink">#</a></p><div class="doc"><h2>tokioTomare</h2><p>Esta fun&#231;&#227;o vai, n&#227;o s&#243; funcionar como uma esp&#233;cie de &quot;contador global&quot;, como tamb&#233;m
+funcionar&#225; como parte da <strong><code><a href="Tarefa6_2022li1g124.html#v:worldReaction" title="Tarefa6_2022li1g124">worldReaction</a></code></strong>, contando o &quot;tempo&quot; que se passa no <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code>,
+o que, consequentemente, far&#225; com que os <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s se &quot;deslizem suavemente&quot; no <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code>
+<code><a href="Tarefa6_2022li1g124.html#v:Classic" title="Tarefa6_2022li1g124">Classic</a></code>, com que os <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s em geral se movimentem, com que a <strong><code><a href="Tarefa5_2022li1g124.html#v:deslizaJogo" title="Tarefa5_2022li1g124">deslizaJogo</a></code></strong> 
+funcione de x em x segundos, com que o <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> continue <a href="Pausado.html">Pausado</a> sem ter de manter a 
+tecla <a href="Espa&#231;o.html">Espa&#231;o</a> pressionada, etc.</p><h3>Defini&#231;&#227;o dada</h3><pre>
+tokioTomare :: Float -&gt; WORLD -&gt; WORLD
+tokioTomare _ ((Gamer u mode wandom (True),[k],(xo,yo)), (obstaculos,(Jogo (Jogador (x, y)) (Mapa larg terobs)),b,r)) = ((Gamer u mode wandom (True),[k],(xo,yo)), (obstaculos,(Jogo (Jogador (x, y)) (Mapa larg terobs)),b,r))
+tokioTomare n ((Gamer u mode wandom (False),[k],(xo,yo)), (obstaculos,(Jogo (Jogador (x, y)) (Mapa larg terobs)),b,r)) 
+    |jogoTerminou (Jogo (Jogador (x, y)) (Mapa larg terobs)) || (jogoTerminou (Jogo (Jogador (novoX, novoY)) (Mapa larg novoTerObs)) &amp;&amp; ((snd(terobs !! y))!! x /= Carro))                         = ((Gamer u mode wandom (True),[k],(xo,yo)), (obstaculos,(Jogo (Jogador (x, y)) (Mapa larg terobs)),b,r)) 
+    |(round b) /= 500 &amp;&amp; (mod (round b) ((round n)*600) == 500) 
+        || ((mode == Doom || mode == TRUE_CLASSIC) &amp;&amp; y == 4) 
+        || (mode == Classic larg &amp;&amp; y == round ((fromIntegral (alturaMapa larg))/3)) = ((Gamer u mode wandom (False),[k],(xo,yo)), (obstaculos,(deslizaJogo (wandom+((round b)*7)) (Jogo (Jogador (x,y)) (Mapa larg novoTerObs))),b+n,r)) 
+    |k == 1                                                                          = ((Gamer u mode wandom (False),[0],(xo,yo)), (obstaculos,(Jogo (Jogador (limites terobs (Cima) (x,y) larg)) (Mapa larg novoTerObs)),b+n,r))
+    |k == 2                                                                          = ((Gamer u mode wandom (False),[0],(xo,yo)), (obstaculos,(Jogo (Jogador (limites terobs (Baixo) (x,y) larg)) (Mapa larg novoTerObs)),b+n,r))
+    |k == 3                                                                          = ((Gamer u mode wandom (False),[0],(xo,yo)), (obstaculos,(Jogo (Jogador (limites terobs (Esquerda) (novoX,novoY) larg)) (Mapa larg novoTerObs)),b+n,r))
+    |k == 4                                                                          = ((Gamer u mode wandom (False),[0],(xo,yo)), (obstaculos,(Jogo (Jogador (limites terobs (Direita) (novoX,novoY) larg)) (Mapa larg novoTerObs)),b+n,r))
+    |k == -1                                                                         = ((Gamer u mode wandom (False),[-1],(xo,yo)), (obstaculos,(Jogo (Jogador (x,y)) (Mapa larg novoTerObs)),b,r))
+    |k == 0                                                                          = ((Gamer u mode wandom (False),[0],(xo,yo)), (obstaculos,(Jogo (Jogador (novoX,novoY)) (Mapa larg novoTerObs)),b+n,r))
+                    where n | b &lt; 12000                 = 5
+                            | b &gt;= 12000 &amp;&amp; b &lt; 60000   = 10
+                            | b &gt;= 60000 &amp;&amp; b &lt; 120000  = 12.5
+                            | b &gt;= 120000 &amp;&amp; b &lt; 240000 = 20
+                            | b &gt;= 240000               = 25
+                          xo = (x*90) - 45*(larg-1)
+                          yo = - (y*90) + 45*((alturaMapa larg)-1)
+                          (novoTerObs,(novoX,novoY)) = moveObsCorrente terobs (x,y) (b)
+tokioTomare _ ((Menu Locked mode o seed,[k],(xo,yo)), (obstaculos,j,b,r)) 
+    | map toLower seed == &quot;frogger&quot; = ((Menu Frogger mode o &quot;&quot;,[k],(xo,yo)), (obstaculos,j,b,r)) 
+tokioTomare _ ((Menu u Starting o seed,[k],(xo,yo)), (obstaculos,j,b,r)) 
+    |k == 0 = ((Menu u Starting o seed,[0],(xo,yo)), (obstaculos,j,b,r))
+    |k == 1 = ((Menu u Starting (mod (o-1) froggerAvailable) seed,[0],(xo,yo)), (obstaculos,j,b,r))
+    |k == 2 = ((Menu u Starting (mod (o+1) froggerAvailable) seed,[0],(xo,yo)), (obstaculos,j,b,r))
+        where froggerAvailable | u == Locked  = 4
+                               | u == Frogger = 5
+tokioTomare _ (((Menu un (Queueing (d,u)) k seed),[n],(xo,yo)), (obs,j,f,r))
+    |n == 0 = (((Menu un (Queueing (d,u)) k seed),[0],(xo,yo)), (obs,j,f,r))
+    |n == 1 = (((Menu un (Queueing (d,u)) (mod (k+1) 2) seed) ,[0],(xo,yo)), (obs,j,f,r))
+    |n == 2 = (((Menu un (Queueing (d,u)) (mod (k-1) 2) seed),[0],(xo,yo)), (obs,j,f,r))
+tokioTomare _ ((Menu u Instrucoes k seed,[n],(xo,yo)), (obs,j,f,r))
+    |n == 0 = ((Menu u Instrucoes k seed,[n],(xo,yo)), (obs,j,f,r))
+    |n == 1 = ((Menu u Instrucoes (mod (k+1) 4) seed,[0],(xo,yo)), (obs,j,f,r))
+    |n == 2 = ((Menu u Instrucoes (mod (k-1) 4) seed,[0],(xo,yo)), (obs,j,f,r))
+
+</pre><pre>
+    <strong>:: Float</strong>  recebe um Float
+    <strong>-&gt; <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code></strong>  recebe um <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code>
+    <strong>-&gt; <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code></strong> devolve um <code><a href="Tarefa6_2022li1g124.html#t:WORLD" title="Tarefa6_2022li1g124">WORLD</a></code>
+
+</pre></div></div><div class="top"><p class="src"><a id="v:moveObsCorrente" class="def">moveObsCorrente</a> :: [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a> -&gt; Float -&gt; ([(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])], <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a>) <a href="#v:moveObsCorrente" class="selflink">#</a></p><div class="doc"><h2>moveObsCorrente</h2><p>Esta fun&#231;&#227;o &#233; uma complementada pela <strong><code><a href="Tarefa6_2022li1g124.html#v:moveObs" title="Tarefa6_2022li1g124">moveObs</a></code></strong> e, tem como objetivo principal, perceber se o <code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code> se encontra
+num <code><a href="LI12223.html#v:Tronco" title="LI12223">Tronco</a></code> e responde corretamente caso seja verdade (tamb&#233;m respondendo &#224; Adenda da Tarefa3 quando complementada
+pela <strong><code><a href="Tarefa6_2022li1g124.html#v:moveObs" title="Tarefa6_2022li1g124">moveObs</a></code></strong>).</p><h3>Defini&#231;&#227;o dada</h3><pre>
+moveObsCorrente :: [(Terreno,[Obstaculo])] -&gt; Coordenadas  -&gt; Float -&gt; ([(Terreno,[Obstaculo])],Coordenadas)
+moveObsCorrente terObs (x,y) b 
+    |((snd(terObs !! y)) !! x == Tronco) &amp;&amp; vel1Val 
+        = ((moveObs terObs (x + (signum (velTer1(fst (terObs !! y)))),y) b),(x + (signum (velTer1(fst (terObs !! y)))),y))
+    |otherwise                                      
+        = ((moveObs terObs (x,y) b),(x,y))
+        where vel1Val = mod (round b) ((4-(abs (velTer1(fst (terObs !! y)))))*200) == 0
+
+</pre><pre>
+    <strong>:: [(<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>,[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>])]</strong>  recebe um tuplo de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s e lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+    <strong>-&gt; <code><a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a></code></strong>  recebe as <code><a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a></code> do <code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code>
+    <strong>-&gt; Float</strong> recebe o Float indicativo do tempo atual do <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code>
+    <strong>-&gt; ([(<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>,[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>])],<code><a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a></code>)</strong> devolve um tuplo que cont&#233;m: uma lista de tuplos de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s e listas 
+                                                       de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s; e as novas <code><a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a></code> do <code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code>
+
+</pre></div></div><div class="top"><p class="src"><a id="v:moveObs" class="def">moveObs</a> :: [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] -&gt; <a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a> -&gt; Float -&gt; [(<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>])] <a href="#v:moveObs" class="selflink">#</a></p><div class="doc"><h2>moveObs</h2><p>Esta fun&#231;&#227;o &#233; uma &quot;vers&#227;o melhorada&quot; de certas fun&#231;&#245;es do m&#243;dulo <strong><code>Tarefa3_2022li1g124</code></strong>,
+sendo que, da maneira como o m&#243;dulo tratava do movimento dos <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s, o Usu&#225;rio poderia
+vir a confundir-se com o movimento de certos <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s a certas <code><a href="LI12223.html#t:Velocidade" title="LI12223">Velocidade</a></code>s
+e.g.
+    Numa <code><a href="LI12223.html#v:Estrada" title="LI12223">Estrada</a></code> repleto de <code><a href="LI12223.html#v:Carro" title="LI12223">Carro</a></code>s intervalados ([Nenhum,Carro,Nenhum,Nenhum,Carro,Nenhum]),
+    o <code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code> poderia tentar atravessar a <code><a href="LI12223.html#v:Estrada" title="LI12223">Estrada</a></code>, mas se a <code><a href="LI12223.html#t:Velocidade" title="LI12223">Velocidade</a></code> fosse de 3, o <code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code>
+    n&#227;o seria capaz de se mover horizontalmente nesta, pois os <code><a href="LI12223.html#v:Carro" title="LI12223">Carro</a></code>s andariam de 3 em 3 Blocos.</p><h3>Defini&#231;&#227;o dada</h3><pre>
+moveObs :: [(Terreno,[Obstaculo])] -&gt; Coordenadas -&gt; Float -&gt; [(Terreno,[Obstaculo])]
+moveObs [] _ _ = []
+moveObs ((ter, (l:lt)):t) (x,y) b
+    |(((y == 0) &amp;&amp; ((l:lt) !! x == Carro))) = (ter, (l:lt)):(moveObs t (x,(y-1)) b)        
+    |(((velTer1 ter) &gt; 0) &amp;&amp; vel1Val)       = (ter, ((last lt):(init (l:lt)))):(moveObs t (x,(y-1)) b)
+    |(((velTer1 ter) &lt; 0) &amp;&amp; vel1Val)       = (ter, ((lt)++[l])):(moveObs t (x,(y-1)) b)
+    |otherwise                              = (ter, (l:lt)):(moveObs t (x,(y-1)) b)
+        where vel1Val = mod (round b) ((4-(abs (velTer1 ter)))*200) == 0
+
+</pre><pre>
+    <strong>:: [(<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>,[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>])]</strong>  recebe um tuplo de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s e lista de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+    <strong>-&gt; <code><a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a></code></strong>  recebe as <code><a href="LI12223.html#t:Coordenadas" title="LI12223">Coordenadas</a></code> do <code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code>
+    <strong>-&gt; Float</strong> recebe o Float indicativo do tempo atual do <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code>
+    <strong>-&gt; [(<code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>,[<code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>])]</strong> devolve uma lista de tuplos de <code><a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a></code>s e listas de <code><a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a></code>s
+
+</pre></div></div><div class="top"><p class="src"><a id="v:jogoInicial" class="def">jogoInicial</a> :: Int -&gt; <a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a> -&gt; <a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a> <a href="#v:jogoInicial" class="selflink">#</a></p><div class="doc"><h2>jogoInicial</h2><p>Apesar de querer um <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> aleat&#243;rio constantemente, decidi que era melhor o Usu&#225;rio ser capaz de &quot;escolher&quot;
+o <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> inicial, para caso esteja a entender muito bem o programa, se possa familiarizar com uma certa seed,
+seja esta escolhida por ele, ou pela Main, e que ap&#243;s perceber bem esta certa seed, possa continuar para o
+<code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code>, funcionando como uma esp&#233;cie de &quot;tutorial aleat&#243;rio&quot;.
+Dado um certo Int e <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code>, ditar&#225; qual dever&#225; ser a posi&#231;&#227;o inicial do <code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code> e a &quot;altura do mapa&quot;.
+Esta fun&#231;&#227;o ser&#225; complementada pela <strong><code><a href="Tarefa6_2022li1g124.html#v:mapaEstendidoInicial" title="Tarefa6_2022li1g124">mapaEstendidoInicial</a></code></strong></p><h3>Defini&#231;&#227;o dada</h3><pre>
+jogoInicial :: Int -&gt; Mode -&gt; Jogo
+jogoInicial wan Undefined    = (Jogo (Jogador (0,0)) (Mapa 1 [(Relva, [Nenhum])]))
+jogoInicial wan (Classic l)  = (Jogo (Jogador ((round (((fromIntegral l)-1)/2)),((((fromIntegral (alturaMapa l))-1))))) (mapaEstendidoInicial (Mapa l []) wan (alturaMapa l)))
+jogoInicial wan Doom         = (Jogo (Jogador (3,8)) (mapaEstendidoInicial (Mapa 7 []) wan 9))
+jogoInicial wan TRUE_CLASSIC = (Jogo (Jogador (4,11)) (mapaEstendidoInicial (Mapa 9 []) wan 12))
+
+</pre><pre>
+    <strong>:: Int</strong>  recebe um Int que ser&#225; atribu&#237;do pela Main aleatoriamente, ou pelo Usu&#225;rio
+    <strong>-&gt; <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code></strong>  recebe um <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> para devolver um <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> apropriado do <code><a href="LI12223.html#t:Jogador" title="LI12223">Jogador</a></code>
+    <strong>-&gt; <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code></strong> devolve um <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code>
+
+</pre></div></div><div class="top"><p class="src"><a id="v:mapaEstendidoInicial" class="def">mapaEstendidoInicial</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; Int -&gt; <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> <a href="#v:mapaEstendidoInicial" class="selflink">#</a></p><div class="doc"><h2>mapaEstendidoInicial</h2><p>Complementando a <strong><code><a href="Tarefa6_2022li1g124.html#v:jogoInicial" title="Tarefa6_2022li1g124">jogoInicial</a></code></strong>, esta fun&#231;&#227;o, vai ditar o <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> criado, tendo em conta a &quot;altura&quot; que este deve ter,
+e que <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> deve criar, tendo em considera&#231;&#227;o o 1&#186; Int recebido</p><h3>Defini&#231;&#227;o dada</h3><pre>
+mapaEstendidoInicial :: Mapa -&gt; Int -&gt; Int -&gt; Mapa
+mapaEstendidoInicial (Mapa l terobs) (wandom) k
+    |length terobs == k = (Mapa l terobs)
+    |otherwise          = mapaEstendidoInicial (estendeMapa (Mapa l terobs) (wandom)) ((wandom+1)*9) k
+
+</pre><pre>
+    <strong>:: <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong>  recebe um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> que ser&#225; estendido at&#233; ter uma &quot;altura correta&quot;
+    <strong>-&gt; Int</strong>  recebe um Int, que ir&#225; ditar que <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> ser&#225; gerado
+    <strong>-&gt; Int</strong> recebe um segundo Int, que ir&#225; tratar da altura do <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code>
+    <strong>-&gt; <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code></strong> devolve um <code><a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></code> 
+
+</pre></div></div><div class="top"><p class="src"><a id="v:alturaMapa" class="def">alturaMapa</a> :: Int -&gt; Int <a href="#v:alturaMapa" class="selflink">#</a></p><div class="doc"><h2>alturaMapa</h2><p>Esta fun&#231;&#227;o s&#243; tem como objetivo responder ao <code><a href="Tarefa6_2022li1g124.html#t:Mode" title="Tarefa6_2022li1g124">Mode</a></code> <code><a href="Tarefa6_2022li1g124.html#v:Classic" title="Tarefa6_2022li1g124">Classic</a></code>, sendo que para ser algo jog&#225;vel,
+a altura n&#227;o pode ser sempre a mesma, porque assim o <code><a href="LI12223.html#t:Jogo" title="LI12223">Jogo</a></code> acabava por ser a mesma coisa, com
+mais alguma &quot;horizontalidade&quot;</p><h3>Defini&#231;&#227;o dada</h3><pre>
+alturaMapa :: Int -&gt; Int
+alturaMapa l | l &lt; 20   = 10
+             |otherwise = round (fromIntegral(l)*0.55)
+
+</pre><pre>
+    <strong>:: Int</strong>  recebe um Int, correspondente &#224; largura dada
+    <strong>-&gt; Int</strong>  devolve um Int apropriado para o Int recebido
+
+</pre></div></div><div class="top"><p class="src"><a id="v:fr" class="def">fr</a> :: Int <a href="#v:fr" class="selflink">#</a></p><div class="doc"><h2>fr</h2><p>Esta fun&#231;&#227;o s&#243; serve para caso mais tarde, achar apropriado alterar o n&#250;mero
+de simula&#231;&#245;es por segundo feitas pelo programa.
+Apenas indicar&#225; um Int que a Main ir&#225; usar constantemente</p><h3>Defini&#231;&#227;o dada</h3><pre>
+fr:: Int
+fr = 60
+
+</pre><pre>
+    <strong>:: Int</strong>  afirma um Int
+
+</pre></div></div><div class="top"><p class="src"><a id="v:dm" class="def">dm</a> :: Display <a href="#v:dm" class="selflink">#</a></p><div class="doc"><h2>dm</h2><p>Esta fun&#231;&#227;o indica que o tamanho da janela, ser&#225; <code>FullScreen</code></p><h3>Defini&#231;&#227;o dada</h3><pre>
+dm :: Display
+dm =  FullScreen 
+
+</pre><pre>
+    <strong>:: Int</strong>  afirma um Int
+
+</pre></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.23.0</p></div></body></html>
