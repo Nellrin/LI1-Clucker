@@ -2,7 +2,6 @@
 Module      : Tarefa6_2022li1g124
 Description : Aplicação gráfica do Projeto
 Copyright   : Frederico Cunha Afonso <a104001@alunos.uminho.pt>
-              Diogo Teixeira Fernandes <a104260@alunos.uminho.pt>
 
 Módulo para a realização da Tarefa 6 do projeto de LI1 em 2022/23.
 -}
@@ -154,31 +153,31 @@ Mais importante de realçar, seria o facto do 'worldBuilder' ter em atenção qu
 
 worldBuilder :: WORLD -> Picture
 worldBuilder ((Menu u Starting o seed,[_],_), (glossy,_,_,_))
-    |o == 0 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+    |o == 0 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "CLUCKER"),
                                        (Translate (90) 382.5    enter),(Translate (-835) 425    up),
                                        (Translate (-835) 375    down),(t 500 white ("Seed: " ++ seed)), 
                                        (t 350 blue "Classic Mode"), (t 200 white "Doom Mode"), 
                                        (t (50) white "Instrucoes"), (t (-100) white "Sair"), 
                                        (t (-250) unlocked "Frogger")])
-    |o == 1 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+    |o == 1 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "DOOM"),
                                        (Translate (50) 232.5    enter),(Translate (-835) 275    up),
                                        (Translate (-835) 225    down),(t 500 white ("Seed: " ++ seed)), 
                                        (t 350 white "Classic Mode"), (t 200 blue "Doom Mode"), 
                                        (t (50) white "Instrucoes"), (t (-100) white "Sair"), 
                                        (t (-250) unlocked "Frogger")])
-    |o == 2 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+    |o == 2 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruzar Estradas?"),
                                        (Translate (-125) 82.5    enter),(Translate (-835) 125    up),
                                        (Translate (-835) 75     down),(t 500 white ("Seed: " ++ seed)), 
                                        (t 350 white "Classic Mode"), (t 200 white "Doom Mode"), 
                                        (t (50) blue "Instrucoes"), (t (-100) white "Sair"), 
                                        (t (-250) unlocked "Frogger")])
-    |o == 3 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+    |o == 3 = scale 0.9 0.7 (Pictures [(Translate (-200) (-600) $ Color white $ Text "See you next time"),
                                        (Translate (-485) (-72.5)    enter),(Translate (-835) (-25)  up),
                                        (Translate (-835) (-75)  down),(t 500 white ("Seed: " ++ seed)), 
                                        (t 350 white "Classic Mode"), (t 200 white "Doom Mode"), 
                                        (t (50) white "Instrucoes"), (t (-100) blue "Sair"), 
                                        (t (-250) unlocked "Frogger")])
-    |o == 4 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+    |o == 4 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "FROGGER"),
                                        (Translate (-255) (-222.5)    enter),(Translate (-835) (-180) up),
                                        (Translate (-835) (-225) down),(t 500 white ("Seed: " ++ seed)), 
                                        (t 350 white "Classic Mode"), (t 200 white "Doom Mode"), 
@@ -192,7 +191,7 @@ worldBuilder ((Menu u Starting o seed,[_],_), (glossy,_,_,_))
                        | u == Locked = black
 
 worldBuilder (((Menu un (Queueing (d,u)) k seed),_,_), (glossy,_,_,_))
-        |k == 0 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+        |k == 0 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "CLUCKER"),
                                            (Translate 400 400 enter),horizontal,(Translate (238.5) 475 up),
                                            (Translate (238.5) 325 down),
                                            (Translate (130) (350) $ Color white $ Text (show d)), 
@@ -200,7 +199,7 @@ worldBuilder (((Menu un (Queueing (d,u)) k seed),_,_), (glossy,_,_,_))
                                            (t 500 white ("Seed: " ++ seed)), (t 350 blue "Classic Mode"), 
                                            (t 200 white "Doom Mode"), (t (50) white "Instrucoes"), 
                                            (t (-100) white "Sair"), (t (-250) unlocked "Frogger")])
-        |k == 1 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+        |k == 1 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "CLUCKER"),
                                            (Translate 400 400 enter),horizontal,(Translate (168.5) 475 up),
                                            (Translate (168.5) 325 down),
                                            (Translate (130) (350) $ Color blue $ Text (show d)), 
@@ -310,31 +309,31 @@ worldBuilder ((Gamer _ gamemode seed gameBool,_,(xo,yo)), (glossy,(Jogo (Jogador
 
 worldBuilder :: WORLD -> Picture
 worldBuilder ((Menu u Starting o seed,[_],_), (glossy,_,_,_))
-    |o == 0 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+    |o == 0 = scale 1.08 0.84 (Pictures [(Translate (285) (-600) $ Color white $ Text "CLUCKER"),
                                        (Translate (90) 382.5    enter),(Translate (-835) 425    up),
                                        (Translate (-835) 375    down),(t 500 white ("Seed: " ++ seed)), 
                                        (t 350 blue "Classic Mode"), (t 200 white "Doom Mode"), 
                                        (t (50) white "Instrucoes"), (t (-100) white "Sair"), 
                                        (t (-250) unlocked "Frogger")])
-    |o == 1 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+    |o == 1 = scale 1.08 0.84 (Pictures [(Translate (500) (-600) $ Color white $ Text "DOOM"),
                                        (Translate (50) 232.5    enter),(Translate (-835) 275    up),
                                        (Translate (-835) 225    down),(t 500 white ("Seed: " ++ seed)), 
                                        (t 350 white "Classic Mode"), (t 200 blue "Doom Mode"), 
                                        (t (50) white "Instrucoes"), (t (-100) white "Sair"), 
                                        (t (-250) unlocked "Frogger")])
-    |o == 2 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+    |o == 2 = scale 1.08 0.84 (Pictures [(Translate (-200) (-600) $ Color white $ Text "Cruzar Estradas?"),
                                        (Translate (-125) 82.5    enter),(Translate (-835) 125    up),
                                        (Translate (-835) 75     down),(t 500 white ("Seed: " ++ seed)), 
                                        (t 350 white "Classic Mode"), (t 200 white "Doom Mode"), 
                                        (t (50) blue "Instrucoes"), (t (-100) white "Sair"), 
                                        (t (-250) unlocked "Frogger")])
-    |o == 3 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+    |o == 3 = scale 1.08 0.84 (Pictures [(Translate (-375) (-600) $ Color white $ Text "See you next time"),
                                        (Translate (-485) (-72.5)    enter),(Translate (-835) (-25)  up),
                                        (Translate (-835) (-75)  down),(t 500 white ("Seed: " ++ seed)), 
                                        (t 350 white "Classic Mode"), (t 200 white "Doom Mode"), 
                                        (t (50) white "Instrucoes"), (t (-100) blue "Sair"), 
                                        (t (-250) unlocked "Frogger")])
-    |o == 4 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+    |o == 4 = scale 1.08 0.84 (Pictures [(Translate (264) (-600) $ Color white $ Text "FROGGER"),
                                        (Translate (-255) (-222.5)    enter),(Translate (-835) (-180) up),
                                        (Translate (-835) (-225) down),(t 500 white ("Seed: " ++ seed)), 
                                        (t 350 white "Classic Mode"), (t 200 white "Doom Mode"), 
@@ -348,7 +347,7 @@ worldBuilder ((Menu u Starting o seed,[_],_), (glossy,_,_,_))
                        | u == Locked = black
 
 worldBuilder (((Menu un (Queueing (d,u)) k seed),_,_), (glossy,_,_,_))
-        |k == 0 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+        |k == 0 = scale 1.08 0.84 (Pictures [(Translate (-350) (-600) $ Color white $ Text "CLUCKER"),
                                            (Translate 400 400 enter),horizontal,(Translate (238.5) 475 up),
                                            (Translate (238.5) 325 down),
                                            (Translate (130) (350) $ Color white $ Text (show d)), 
@@ -356,7 +355,7 @@ worldBuilder (((Menu un (Queueing (d,u)) k seed),_,_), (glossy,_,_,_))
                                            (t 500 white ("Seed: " ++ seed)), (t 350 blue "Classic Mode"), 
                                            (t 200 white "Doom Mode"), (t (50) white "Instrucoes"), 
                                            (t (-100) white "Sair"), (t (-250) unlocked "Frogger")])
-        |k == 1 = scale 0.9 0.7 (Pictures [(Translate (-100) (-600) $ Color white $ Text "Cruza Estradas!"),
+        |k == 1 = scale 1.08 0.84 (Pictures [(Translate (-350) (-600) $ Color white $ Text "CLUCKER"),
                                            (Translate 400 400 enter),horizontal,(Translate (168.5) 475 up),
                                            (Translate (168.5) 325 down),
                                            (Translate (130) (350) $ Color blue $ Text (show d)), 
@@ -375,7 +374,7 @@ worldBuilder (((Menu un (Queueing (d,u)) k seed),_,_), (glossy,_,_,_))
                            | un == Locked  = black
 
 worldBuilder (((Menu un Instrucoes k seed),_,_), (glossy,_,_,_))
-    |k == 0 = (Pictures [(t (-750) 310 white ("Instrucoes")), (Translate 100 (-400) (scale 0.8 0.8(img!!3))), 
+    |k == 0 = scale 1.2 1.2(Pictures [(t (-750) 310 white ("Instrucoes")), (Translate 100 (-400) (scale 0.8 0.8(img!!3))), 
                     (Translate (-100) (-400) (scale 0.8 0.8(img!!2))),
                     (scale 0.3 0.5 (t (-110) (-850) white ("1/4"))),
                     (Translate 0 100 (scale 0.5 0.4 
@@ -386,7 +385,7 @@ worldBuilder (((Menu un Instrucoes k seed),_,_), (glossy,_,_,_))
                     (Translate (-600) (-175) (img!!5)),(teclas (-550) (-15)),
                     (scale 0.3 0.5 (t (-1450) (-390) white ("|>Para navegar pelos menus, e necessario"))), 
                     (scale 0.3 0.5 (t (-1450) (-540) white ("| utilizar-se as 'setas direcionais' e o 'Enter'")))])
-    |k == 1 = (Pictures [(t (-750) 310 white ("Instrucoes")), (Translate 100 (-400) (scale 0.8 0.8(img!!3))), 
+    |k == 1 = scale 1.2 1.2(Pictures [(t (-750) 310 white ("Instrucoes")), (Translate 100 (-400) (scale 0.8 0.8(img!!3))), 
                     (Translate (-100) (-400) (scale 0.8 0.8(img!!2))),
                     (scale 0.3 0.5 (t (-120) (-850) white ("2/4"))),
                     (Translate 0 100 (scale 0.5 0.4 
@@ -398,7 +397,7 @@ worldBuilder (((Menu un Instrucoes k seed),_,_), (glossy,_,_,_))
                     (Translate (-600) (-175) (img!!5)),(teclas (-550) (-15)),
                     (scale 0.3 0.5 (t (-1450) (-390) white ("|>O 'Classic Mode' permite ao Jogador escolher a largura do"))), 
                     (scale 0.3 0.5 (t (-1450) (-540) white ("| mapa desde que esta seja superior a 3 e inferior a 99")))])        
-    |k == 2 = (Pictures [(t (-750) 310 white ("Instrucoes")), (Translate 100 (-400) (scale 0.8 0.8(img!!3))), 
+    |k == 2 = scale 1.2 1.2(Pictures [(t (-750) 310 white ("Instrucoes")), (Translate 100 (-400) (scale 0.8 0.8(img!!3))), 
                     (Translate (-100) (-400) (scale 0.8 0.8(img!!2))),
                     (scale 0.3 0.5 (t (-120) (-850) white ("3/4"))),
                     (scale 0.5 0.7 (t (-1565) 150 white ("Seed: 7r0663r"))),
@@ -408,7 +407,7 @@ worldBuilder (((Menu un Instrucoes k seed),_,_), (glossy,_,_,_))
                     (scale 0.3 0.5 (t (-650) (70) white "| (numero qualquer usado para criar o mapa)")),
                     (scale 0.3 0.5 (t (-650) (-85) white "| ao Jogo, usando os numeros (ou o 'Delete'),")),
                     (scale 0.3 0.5 (t (-650) (-240) white "| este ira gerar uma aleatoria"))])
-    |k == 3 = (Pictures [(t (-750) 310 white ("Instrucoes")), 
+    |k == 3 = scale 1.2 1.2(Pictures [(t (-750) 310 white ("Instrucoes")), 
                     (Translate 100 (-400) (scale 0.8 0.8(img!!3))), 
                     (Translate (-100) (-400) (scale 0.8 0.8(img!!2))),
                     (scale 0.3 0.5 (t (-122.5) (-850) white (("4/4")))),
@@ -432,21 +431,21 @@ worldBuilder (((Menu un Instrucoes k seed),_,_), (glossy,_,_,_))
 
 worldBuilder ((Gamer _ gamemode seed gameBool,_,(xo,yo)), (glossy,(Jogo (Jogador (x, y)) (Mapa larg terobs)),n,r))
     | gamemode == TRUE_CLASSIC                                   
-        = pictures (((froggerTerrenos (glossy !! 5) (map fst terobs) ((-337.5),(412.5))) 
-                     ++ (froggerObstaculos (glossy !! 5) (terobs) ((-337.5),(412.5)))  
-                     ++ [Translate (-337.5+((fromIntegral x)*75)) (412.5-((fromIntegral y)*75)) ((glossy !! 5) !! 9)]) 
-                     ++ (scoreboard gameBool n))
+        = scale 1.2 1.2 (pictures (((froggerTerrenos (glossy !! 5) (map fst terobs) ((-337.5),(412.5))) 
+                                    ++ (froggerObstaculos (glossy !! 5) (terobs) ((-337.5),(412.5)))  
+                                    ++ [Translate (-337.5+((fromIntegral x)*75)) (412.5-((fromIntegral y)*75)) ((glossy !! 5) !! 9)]) 
+                                    ++ (scoreboard gameBool n)))
     | gamemode == Doom                                           
-        = pictures ((terrenosDoom ((glossy!!2),(glossy!!3),(glossy!!4),(glossy!!0)) (Mapa larg terobs) (x,y) (0,0))
-                    ++(scoreboard gameBool n))
+        = scale 1.2 1.2 (Translate 0 (-60) (pictures ((terrenosDoom ((glossy!!2),(glossy!!3),(glossy!!4),(glossy!!0)) (Mapa larg terobs) (x,y) (0,0))
+                    ++(scoreboard gameBool n))))
     | gamemode /= Doom && gamemode /= TRUE_CLASSIC && larg < 19  
-        = (pictures ((terrenosClassic (glossy!!1) (map fst terobs) ((-45*((fromIntegral larg)-1)),
+        = scale 1.2 1.2 (pictures ((terrenosClassic (glossy!!1) (map fst terobs) ((-45*((fromIntegral larg)-1)),
                      (45*((fromIntegral (alturaMapa larg))-1))) larg) 
                     ++ (obstaculosClassic (head glossy) (Mapa larg terobs) n ((-45*((fromIntegral larg)-1)),
                         (45*((fromIntegral (alturaMapa larg))-1))) (xo,yo))
                     ++(scoreboard gameBool n)))
     | gamemode /= Doom && gamemode /= TRUE_CLASSIC && larg >= 19 
-        = (pictures (scale 0.9875 0.9875  (scale (18/ (fromIntegral larg)) (18/ (fromIntegral larg)) 
+        = scale 1.2 1.2 (pictures (scale 0.9875 0.9875  (scale (18/ (fromIntegral larg)) (18/ (fromIntegral larg)) 
             (pictures 
                 ((terrenosClassic (glossy!!1) (map fst terobs) ((-45*((fromIntegral larg)-1)),
                     (45*((fromIntegral (alturaMapa larg))-1))) larg) 

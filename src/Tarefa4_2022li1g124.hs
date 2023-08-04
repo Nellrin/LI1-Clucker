@@ -2,7 +2,6 @@
 Module      : Tarefa4_2022li1g124
 Description : Determinar se o jogo terminou
 Copyright   : Frederico Cunha Afonso <a104001@alunos.uminho.pt>
-              Diogo Teixeira Fernandes <a104260@alunos.uminho.pt>
 
 Módulo para a realização da Tarefa 4 do projeto de LI1 em 2022/23.
 -}
