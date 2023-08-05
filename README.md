@@ -37,9 +37,9 @@ This project was assigned with the intention of furthering my familiarity with [
     ./Main
     
 
-
+#
  (if for some reason you ended up with some error/something missing ... my bad G 😔👍)
-
+#
 # How does this work? 
 
 ### 1. 🐋Haddock🐋
@@ -50,9 +50,9 @@ This project was assigned with the intention of furthering my familiarity with [
 
 ### 2. Click on doc/html/index.html
 
-
+#
  (again, if for some reason you ended up with some error/something missing ... my bad G 😔👍)
-
+#
 ## Final Grade 🥚 **17/20** 🥚
 
 (Last Update: January 2nd) [1st Year|1st Semester]
