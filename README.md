@@ -19,7 +19,7 @@ This project was assigned with the intention of furthering my familiarity with [
     
 ###    3. Get this repository's content into some directory
 
-    git clone https://github.com/pedrofp4444/Crossy-Road-Plus.git
+    git clone https://github.com/FredCunhaAfonso/LI1-Clucker.git
         
 
 ###    4. Get into the [src](src/) directory
