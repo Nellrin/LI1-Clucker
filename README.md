@@ -36,6 +36,9 @@ This project was assigned with the intention of furthering my familiarity with [
     
     ./Main
     
+
+
+ (if for some reason you ended up with some error/something missing ... my bad G 😔👍)
 #
 # How does this work? 
 
@@ -48,7 +51,7 @@ This project was assigned with the intention of furthering my familiarity with [
 ### 2. Click on doc/html/index.html
 
 
- (if for some reason you ended up with some error/something missing ... my bad G 😔👍)
+ (again, if for some reason you ended up with some error/something missing ... my bad G 😔👍)
 #
 
 ## Final Grade 🥚 **17/20** 🥚
