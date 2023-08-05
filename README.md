@@ -9,7 +9,7 @@ This project was assigned with the intention of furthering my familiarity with [
 #
 ## Try it out for yourself!
 
-#    [1. Install GHC and cabal](https://www.haskell.org/downloads/)
+####    [1. Install GHC and cabal](https://www.haskell.org/downloads/)
 
 #    2. Install all necessary libraries (Gloss) 
 
