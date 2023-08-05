@@ -39,7 +39,7 @@ This project was assigned with the intention of furthering my familiarity with [
 
 
  (if for some reason you ended up with some error/something missing ... my bad G 😔👍)
-#
+
 # How does this work? 
 
 ### 1. 🐋Haddock🐋
@@ -52,7 +52,6 @@ This project was assigned with the intention of furthering my familiarity with [
 
 
  (again, if for some reason you ended up with some error/something missing ... my bad G 😔👍)
-#
 
 ## Final Grade 🥚 **17/20** 🥚
 
