@@ -7,7 +7,7 @@ Immerse yourself in a third-person, procedurally generated world, assuming the r
 This project was assigned with the intention of furthering my familiarity with [Haskell](https://www.haskell.org/) and its library [Gloss](http://gloss.ouroborus.net/).
 
 #
-# Try it out for yourself!
+# Try it out for yourself! #
 
 ###    [1. Install GHC and cabal](https://www.haskell.org/downloads/)
 
