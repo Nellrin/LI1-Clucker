@@ -11,37 +11,37 @@ This project was assigned with the intention of furthering my familiarity with [
 
 ###    2. Install all necessary libraries (Gloss) 
 
-        cabal update
-        cabal install --lib gloss
+cabal update
+cabal install --lib gloss
         
     
 ###    3. Get this repository's content into some directory
 
-        git clone https://github.com/pedrofp4444/Crossy-Road-Plus.git
+git clone https://github.com/FredCunhaAfonso/LI1-Clucker.git
         
 
 ###    4. Get into the [src](src/) directory
 
-        cd LI1-Clucker/src
-        
+cd LI1-Clucker/src
+
 
 ###    5. Compile
 
-        ghc Main.hs
+ghc Main.hs
 
 ###    6. PLAY!
 
-       
-        ./Main
-        
+
+./Main
+
 
 ## How does this work? 
 
 ### 1. 🐋Haddock🐋
 
-        cd ..
-        cabal haddock --haddock-all
-        haddock -h -o doc/html src/*.hs
+cd ..
+cabal haddock --haddock-all
+haddock -h -o doc/html src/*.hs
 
 ### 2. Click on doc/html/index.html
 
