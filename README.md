@@ -49,8 +49,9 @@ This project was assigned with the intention of furthering my familiarity with [
     haddock -h -o doc/html src/*.hs
 
 ### 2. Click on doc/html/index.html
-
 #
+
+
 ## Final Grade 🥚 **17/20** 🥚
 
 (Last Update: January 2nd) [1st Year|1st Semester]
